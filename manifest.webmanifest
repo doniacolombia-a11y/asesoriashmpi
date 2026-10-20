@@ -1,0 +1,24 @@
+{
+  "name": "Nadine – Contenido y redes",
+  "short_name": "Nadine",
+  "description": "Gestiona el contenido, las ideas, los guiones y los resultados de cada empresa que asesoras.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f3f4f7",
+  "theme_color": "#800020",
+  "lang": "es",
+  "categories": ["productivity", "business", "social"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Planificador", "url": "./#planificador", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Ideas con IA", "url": "./#ideas", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Comparativo", "url": "./#comparativo", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
