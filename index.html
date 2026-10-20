@@ -1245,6 +1245,7 @@ function syncPill(){
   if(FS.state==='perm')return `<button class="sync-pill warn" data-act="fsReconnect"><i></i><span>Toca para reconectar tus datos</span></button>`;
   return `<button class="sync-pill" data-act="nav" data-tab="configuracion"><i></i><span>Datos solo en este navegador</span></button>`;
 }
+const fileBanner=()=>`<div class="warn-box no-print">${ic('info',20)}<p><b>Estás abriendo la app desde un archivo de tu computador.</b> Así no se puede instalar, y Chrome y Edge no comparten la información. Publícala en Netlify (<b>app.netlify.com/drop</b>) y ábrela siempre desde ese enlace. Antes, descarga una copia de tus datos para pasarlos a la versión publicada.</p><button class="btn primary sm" data-act="exportData">${ic('download',15)} Descargar copia de mis datos</button></div>`;
 const permBanner=()=>`<div class="warn-box no-print">${ic('link',20)}<p><b>Reconecta tus datos.</b> El navegador pide permiso otra vez para usar el archivo ${esc(FS.name)}. Mientras tanto, los cambios solo quedan en este navegador.</p><button class="btn primary sm" data-act="fsReconnect">Reconectar</button></div>`;
 const syncTip=()=>FS_OK&&FS.state==='off'&&!S.user.syncTipOff?`<div class="card tip-card no-print" style="margin-bottom:16px">${ic('link',22)}<div style="flex:1;min-width:220px"><b>¿Usas Chrome y Edge en este computador?</b><div class="small muted">Conecta un archivo de datos y verás la misma información en los dos navegadores.</div></div><div class="head-actions"><button class="btn primary sm" data-act="nav" data-tab="configuracion">Configurar</button><button class="btn sm ghost" data-act="dismissSyncTip">Ahora no</button></div></div>`:'';
 
@@ -1821,7 +1822,7 @@ function vConfig(){
    Render y navegación
    ========================================================= */
 const VIEWS={inicio:vInicio,empresas:vEmpresas,ficha:vFicha,planificador:vPlan,ideas:vIdeas,guiones:vGuiones,automatizacion:vAuto,estadisticas:vStats,comparativo:vCompare,configuracion:vConfig};
-function render(){ui.needRender=false;renderSidebar();$('#main').innerHTML=(FS.state==='perm'?permBanner():'')+(VIEWS[ui.tab]||vInicio)();if(ui.tab==='guiones')updateDuration();}
+function render(){ui.needRender=false;renderSidebar();$('#main').innerHTML=(location.protocol==='file:'?fileBanner():'')+(FS.state==='perm'?permBanner():'')+(VIEWS[ui.tab]||vInicio)();if(ui.tab==='guiones')updateDuration();}
 function go(tab){
   if(ui.tab==='guiones')persistEditor();
   flushFicha();
