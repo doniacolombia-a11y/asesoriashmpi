@@ -1,7 +1,7 @@
 /* Service worker de la app Nadine: guarda la app para que funcione sin internet.
    Cuando hagas cambios en la app, sube el número de versión (nadine-v1 → nadine-v2) para que
    los celulares y PCs que ya la tienen instalada descarguen la nueva versión. */
-const CACHE = 'nadine-v1';
+const CACHE = 'nadine-v2';
 const ASSETS = [
   './',
   './index.html',

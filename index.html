@@ -16,12 +16,12 @@
 <meta name="apple-mobile-web-app-title" content="Nadine" id="apple-title">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --brand:#800020;--brand-d:#600018;--brand-soft:#fbeaef;--brand-soft2:#f3cdd7;
-  --navy:#14213d;--bg:#f3f4f7;--card:#fff;--text:#1f2433;--muted:#6b7280;--muted2:#9aa1ad;--line:#e7e9ef;
-  --green:#16a34a;--red:#dc2626;--radius:16px;
+  --brand:#800020;--brand-d:#600018;--brand-2:#a3173f;--brand-3:#c2185b;--brand-soft:#fbeaef;--brand-soft2:#f3cdd7;--brand-ink:#800020;--on-brand:#fff;
+  --navy:#14213d;--bg:#f3f4f7;--card:#fff;--text:#1f2433;--text2:#4b5263;--muted:#6b7280;--muted2:#9aa1ad;--line:#e7e9ef;--line2:#d5d8e0;--soft:#f8f9fb;--hover:#f3f4f6;--glass:rgba(255,255,255,.94);
+  --green:#16a34a;--red:#dc2626;--rf:1;--radius:calc(16px * var(--rf));--hw:400;
   --shadow:0 1px 2px rgba(16,24,40,.04),0 2px 6px rgba(16,24,40,.05);
   --serif:"DM Serif Display",Georgia,"Times New Roman",serif;
   --sans:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -43,24 +43,24 @@ a{color:inherit}
 .logo{font-weight:800;letter-spacing:.02em;font-size:15px;color:var(--navy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .logo.caps{letter-spacing:.17em}
 .brand{display:flex;align-items:center;gap:10px;min-width:0}
-.brand img{height:38px;width:auto;max-width:160px;object-fit:contain;display:block;border-radius:8px}
+.brand img{height:38px;width:auto;max-width:160px;object-fit:contain;display:block;border-radius:calc(8px * var(--rf))}
 .sidebar .brand{padding:0 12px 24px}
 .topbar .brand{justify-content:center;flex:1;padding:0 8px}
 .topbar .brand img{height:30px;max-width:130px}
 .logo-box{display:flex;align-items:center;gap:16px;margin-bottom:16px;flex-wrap:wrap}
-.logo-prev{width:88px;height:88px;border-radius:18px;border:1.5px dashed #d5d8e0;display:grid;place-items:center;background:#f8f9fb;overflow:hidden;flex-shrink:0;color:var(--muted2)}
+.logo-prev{width:88px;height:88px;border-radius:calc(18px * var(--rf));border:1.5px dashed var(--line2);display:grid;place-items:center;background:var(--soft);overflow:hidden;flex-shrink:0;color:var(--muted2)}
 .logo-prev img{max-width:100%;max-height:100%;object-fit:contain}
-.logo-prev.has{border-style:solid;background:#fff}
+.logo-prev.has{border-style:solid;background:var(--card)}
 .check{display:flex;align-items:center;gap:9px;font-size:13.5px;margin:0 0 14px;cursor:pointer}
 .check input{width:17px;height:17px;accent-color:var(--brand)}
-.nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4b5263;font-weight:500;text-decoration:none;margin-bottom:3px;transition:background .15s}
-.nav a:hover{background:#f6f7f9}
-.nav a.active{background:var(--brand-soft);color:var(--brand);font-weight:600}
+.nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:calc(12px * var(--rf));color:var(--text2);font-weight:500;text-decoration:none;margin-bottom:3px;transition:background .15s}
+.nav a:hover{background:var(--hover)}
+.nav a.active{background:var(--brand-soft);color:var(--brand-ink);font-weight:600}
 .side-bottom{margin-top:auto;padding-top:12px}
-.install-card{background:linear-gradient(140deg,#9b123c,#600018);color:#fff;border-radius:16px;padding:14px;margin-bottom:12px}
+.install-card{background:linear-gradient(140deg,var(--brand-2),var(--brand-d));color:var(--on-brand);border-radius:calc(16px * var(--rf));padding:14px;margin-bottom:12px}
 .install-card b{display:block;font-size:13.5px}
 .install-card p{margin:4px 0 10px;font-size:12px;opacity:.85}
-.install-card button{background:#fff;color:var(--brand);font-weight:700;font-size:12.5px;padding:7px 12px;border-radius:10px;display:inline-flex;gap:6px;align-items:center}
+.install-card button{background:#fff;color:var(--brand);font-weight:700;font-size:12.5px;padding:7px 12px;border-radius:calc(10px * var(--rf));display:inline-flex;gap:6px;align-items:center}
 .side-bottom .nav{border-top:1px solid var(--line);padding-top:10px}
 .main{padding:30px 34px 60px;min-width:0}
 .backdrop{display:none}
@@ -68,22 +68,22 @@ a{color:inherit}
 
 /* ---------- page head ---------- */
 .page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
-.page-head h1{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.08;margin:0;color:var(--navy);letter-spacing:-.01em}
+.page-head h1{font-family:var(--serif);font-weight:var(--hw);font-size:36px;line-height:1.08;margin:0;color:var(--navy);letter-spacing:-.01em}
 .page-head p{margin:6px 0 0;color:var(--muted)}
 .head-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 
 /* ---------- buttons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border-radius:12px;font-weight:600;font-size:14px;border:1px solid var(--line);background:var(--card);white-space:nowrap;transition:background .15s,border-color .15s}
-.btn:hover{background:#f6f7f9}
-.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border-radius:calc(12px * var(--rf));font-weight:600;font-size:14px;border:1px solid var(--line);background:var(--card);white-space:nowrap;transition:background .15s,border-color .15s}
+.btn:hover{background:var(--hover)}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
 .btn.primary:hover{background:var(--brand-d)}
-.btn.sm{padding:6px 11px;font-size:12.5px;border-radius:10px;gap:6px}
+.btn.sm{padding:6px 11px;font-size:12.5px;border-radius:calc(10px * var(--rf));gap:6px}
 .btn.ghost{border-color:transparent;background:transparent}
-.btn.ghost:hover{background:#f3f4f6}
+.btn.ghost:hover{background:var(--hover)}
 .btn.danger{color:var(--red)}
-.icon-btn{width:36px;height:36px;display:inline-grid;place-items:center;border-radius:10px;color:#4b5263}
-.icon-btn:hover{background:#f1f2f5}
-.pill{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--line);background:var(--card);border-radius:12px;font-weight:600;font-size:13.5px}
+.icon-btn{width:36px;height:36px;display:inline-grid;place-items:center;border-radius:calc(10px * var(--rf));color:var(--text2)}
+.icon-btn:hover{background:var(--soft)}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--line);background:var(--card);border-radius:calc(12px * var(--rf));font-weight:600;font-size:13.5px}
 .pill select{border:0;background:transparent;outline:0;font-weight:600;cursor:pointer}
 
 /* ---------- cards & grids ---------- */
@@ -100,14 +100,14 @@ a{color:inherit}
 /* ---------- chips ---------- */
 .chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
-.chip{padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-weight:500;color:#4b5263;white-space:nowrap;display:inline-flex;gap:7px;align-items:center}
-.chip:hover{background:#f8f8fa}
-.chip.active{background:var(--brand-soft);border-color:var(--brand-soft2);color:var(--brand);font-weight:600}
+.chip{padding:8px 14px;border-radius:calc(12px * var(--rf));border:1px solid var(--line);background:var(--card);font-weight:500;color:var(--text2);white-space:nowrap;display:inline-flex;gap:7px;align-items:center}
+.chip:hover{background:var(--hover)}
+.chip.active{background:var(--brand-soft);border-color:var(--brand-soft2);color:var(--brand-ink);font-weight:600}
 .pdot{width:9px;height:9px;border-radius:50%;display:inline-block}
 
 /* ---------- KPIs ---------- */
-.kpi{min-width:0;border-radius:16px;padding:16px;border:1px solid var(--line);background:var(--card)}
-.k-top{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#374151}
+.kpi{min-width:0;border-radius:calc(16px * var(--rf));padding:16px;border:1px solid var(--line);background:var(--card)}
+.k-top{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text2)}
 .k-val{font-size:27px;font-weight:800;margin:8px 0 2px;letter-spacing:-.02em}
 .k-delta{font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;gap:3px}
 .k-sub{font-size:12px;color:var(--muted);margin-left:4px;font-weight:500}
@@ -119,10 +119,10 @@ a{color:inherit}
 .tint-violet{background:#f6f2ff;border-color:#e6dcfb}.tint-violet .k-top .ic{color:#7c3aed}
 
 /* ---------- badges / thumbs ---------- */
-.badge{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:calc(999px * var(--rf));white-space:nowrap}
 .b-Reel{background:#fde4ea;color:#b4123e}.b-Carrusel{background:#efe7fd;color:#6d28d9}.b-Historia{background:#e3eefe;color:#1d4ed8}
 .b-TikTok{background:#dcfce9;color:#15803d}.b-Post{background:#fef3c7;color:#b45309}.b-YouTube{background:#fee2e2;color:#dc2626}
-.thumb{border-radius:10px;display:grid;place-items:center;color:#fff;flex-shrink:0}
+.thumb{border-radius:calc(10px * var(--rf));display:grid;place-items:center;color:#fff;flex-shrink:0}
 .t-Reel{background:linear-gradient(135deg,#f9b4c6,#b4123e)}.t-Carrusel{background:linear-gradient(135deg,#d8c8fb,#6d28d9)}
 .t-Historia{background:linear-gradient(135deg,#bcd6fd,#1d4ed8)}.t-TikTok{background:linear-gradient(135deg,#2b3445,#0d9488)}
 .t-Post{background:linear-gradient(135deg,#fde68a,#d97706)}.t-YouTube{background:linear-gradient(135deg,#fca5a5,#dc2626)}
@@ -130,21 +130,21 @@ a{color:inherit}
 
 /* ---------- planner ---------- */
 .week{display:grid;grid-template-columns:repeat(7,minmax(132px,1fr));gap:10px;overflow-x:auto;padding-bottom:6px}
-.day{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:9px;min-height:300px}
+.day{background:var(--card);border:1px solid var(--line);border-radius:calc(16px * var(--rf));padding:10px;display:flex;flex-direction:column;gap:9px;min-height:300px}
 .day-h{text-align:center;padding:2px 0 6px}
 .day-h .dn{font-size:13px;font-weight:600;color:var(--muted)}
-.day-h .dd{font-size:20px;font-weight:800;line-height:1.5;display:inline-block;min-width:36px;border-radius:10px}
+.day-h .dd{font-size:20px;font-weight:800;line-height:1.5;display:inline-block;min-width:36px;border-radius:calc(10px * var(--rf))}
 .day.today{border-color:var(--brand-soft2)}
-.day.today .dd{background:var(--brand);color:#fff}
-.post{border:1px solid var(--line);border-radius:12px;padding:7px;text-align:left;width:100%;background:#fff;display:flex;flex-direction:column;gap:6px;transition:box-shadow .15s,border-color .15s}
+.day.today .dd{background:var(--brand);color:var(--on-brand)}
+.post{border:1px solid var(--line);border-radius:calc(12px * var(--rf));padding:7px;text-align:left;width:100%;background:var(--card);display:flex;flex-direction:column;gap:6px;transition:box-shadow .15s,border-color .15s}
 .post:hover{border-color:var(--brand-soft2);box-shadow:0 4px 14px rgba(128,0,32,.09)}
 .post .thumb{height:64px;width:100%}
 .post .pbody{display:flex;flex-direction:column;gap:5px;min-width:0}
 .post .pt{font-weight:600;font-size:13px;line-height:1.3;overflow-wrap:anywhere}
 .post .pm{font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:5px}
-.add-slot{border:1.5px dashed #d5d8e0;border-radius:12px;padding:14px 8px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12.5px;font-weight:500;margin-top:auto;width:100%}
-.add-slot:hover{border-color:var(--brand);color:var(--brand)}
-.week-nav{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:3px}
+.add-slot{border:1.5px dashed var(--line2);border-radius:calc(12px * var(--rf));padding:14px 8px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12.5px;font-weight:500;margin-top:auto;width:100%}
+.add-slot:hover{border-color:var(--brand);color:var(--brand-ink)}
+.week-nav{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--line);background:var(--card);border-radius:calc(12px * var(--rf));padding:3px}
 .week-nav span{font-weight:600;font-size:13.5px;padding:0 8px;white-space:nowrap}
 
 /* ---------- lists ---------- */
@@ -155,29 +155,29 @@ a{color:inherit}
 .li .grow span{font-size:12px;color:var(--muted)}
 .clickable{cursor:pointer;width:100%;text-align:left}
 .quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.qa{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--line);border-radius:14px;text-align:left;background:#fff}
-.qa:hover{border-color:var(--brand-soft2);background:#fffafb}
+.qa{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--line);border-radius:calc(14px * var(--rf));text-align:left;background:var(--card)}
+.qa:hover{border-color:var(--brand-soft2);background:var(--hover)}
 .qa b{display:block;font-size:13.5px}.qa span{font-size:12px;color:var(--muted)}
-.hero{background:linear-gradient(120deg,#800020 0%,#a3173f 60%,#c2185b 100%);color:#fff;border-radius:20px;padding:26px 28px;position:relative;overflow:hidden;margin-bottom:16px}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:36px;margin:0;line-height:1.1}
+.hero{background:linear-gradient(120deg,var(--brand) 0%,var(--brand-2) 60%,var(--brand-3) 100%);color:var(--on-brand);border-radius:calc(20px * var(--rf));padding:26px 28px;position:relative;overflow:hidden;margin-bottom:16px}
+.hero h1{font-family:var(--serif);font-weight:var(--hw);font-size:36px;margin:0;line-height:1.1}
 .hero p{margin:8px 0 18px;opacity:.88;max-width:520px}
 .hero .btn{background:#fff;color:var(--brand);border-color:#fff}
-.hero .btn.outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.hero .btn.outline{background:transparent;color:var(--on-brand);border-color:rgba(255,255,255,.5)}
 .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.08)}
 
 /* ---------- ideas ---------- */
-.cat{display:flex;align-items:center;gap:14px;padding:15px;text-align:left;width:100%;border:1px solid var(--line);border-radius:16px;background:#fff;transition:border-color .15s,box-shadow .15s}
+.cat{display:flex;align-items:center;gap:14px;padding:15px;text-align:left;width:100%;border:1px solid var(--line);border-radius:calc(16px * var(--rf));background:var(--card);transition:border-color .15s,box-shadow .15s}
 .cat:hover{border-color:var(--brand-soft2)}
 .cat.active{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
-.cico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex-shrink:0}
+.cico{width:46px;height:46px;border-radius:calc(14px * var(--rf));display:grid;place-items:center;flex-shrink:0}
 .cat b{display:block;font-size:14.5px}.cat span{color:var(--muted);font-size:12.5px}
 .cat .chev{margin-left:auto;color:var(--muted2)}
 .c-rose{background:#fde8ee;color:#be185d}.c-violet{background:#f0e9fe;color:#7c3aed}.c-blue{background:#e6f0fe;color:#2563eb}
 .c-green{background:#e3f8ec;color:#16a34a}.c-orange{background:#ffeedd;color:#ea580c}.c-pink{background:#fde7f3;color:#db2777}
-.gen-bar{display:flex;gap:10px;align-items:center;padding:7px 7px 7px 16px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 6px 24px rgba(16,24,40,.08);position:sticky;bottom:14px;z-index:5;margin-top:16px}
-.gen-bar .ic{color:var(--brand)}
+.gen-bar{display:flex;gap:10px;align-items:center;padding:7px 7px 7px 16px;border:1px solid var(--line);border-radius:calc(16px * var(--rf));background:var(--card);box-shadow:0 6px 24px rgba(16,24,40,.08);position:sticky;bottom:14px;z-index:5;margin-top:16px}
+.gen-bar .ic{color:var(--brand-ink)}
 .gen-bar input{flex:1;border:0;outline:0;background:transparent;padding:9px 0;min-width:0}
-.result{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fcfcfd}
+.result{border:1px solid var(--line);border-radius:calc(14px * var(--rf));padding:14px;background:var(--soft)}
 .result+.result{margin-top:10px}
 .result .rt{white-space:pre-wrap;overflow-wrap:anywhere}
 .result .ra{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
@@ -186,43 +186,43 @@ a{color:inherit}
 
 /* ---------- forms ---------- */
 .field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px;min-width:0}
-.field label{font-size:12.5px;font-weight:600;color:#4b5263}
-.inp{width:100%;background:#f8f9fb;border:1px solid var(--line);border-radius:11px;padding:10px 12px;outline:0;transition:border-color .15s,box-shadow .15s}
-.inp:focus{border-color:var(--brand);background:#fff;box-shadow:0 0 0 3px var(--brand-soft)}
+.field label{font-size:12.5px;font-weight:600;color:var(--text2)}
+.inp{width:100%;background:var(--soft);border:1px solid var(--line);border-radius:calc(11px * var(--rf));padding:10px 12px;outline:0;transition:border-color .15s,box-shadow .15s}
+.inp:focus{border-color:var(--brand);background:var(--card);box-shadow:0 0 0 3px var(--brand-soft)}
 textarea.inp{resize:vertical;min-height:84px;line-height:1.5}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .row4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.hint{font-size:12px;color:var(--muted);background:#f8f9fb;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:12px}
+.hint{font-size:12px;color:var(--muted);background:var(--soft);border:1px solid var(--line);border-radius:calc(12px * var(--rf));padding:10px 12px;margin-bottom:12px}
 
 /* ---------- modal ---------- */
 .modal-wrap{position:fixed;inset:0;background:rgba(15,23,42,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:100}
 .modal-wrap.open{display:flex}
-.modal{background:#fff;border-radius:20px;width:100%;max-width:540px;max-height:calc(100vh - 32px);overflow-y:auto;padding:22px;box-shadow:0 24px 48px rgba(0,0,0,.22)}
-.modal h2{font-family:var(--serif);font-weight:400;font-size:27px;margin:0 0 16px;color:var(--navy)}
+.modal{background:var(--card);border-radius:calc(20px * var(--rf));width:100%;max-width:540px;max-height:calc(100vh - 32px);overflow-y:auto;padding:22px;box-shadow:0 24px 48px rgba(0,0,0,.22)}
+.modal h2{font-family:var(--serif);font-weight:var(--hw);font-size:27px;margin:0 0 16px;color:var(--navy)}
 .modal-foot{display:flex;justify-content:space-between;gap:8px;margin-top:6px;align-items:center;flex-wrap:wrap}
 
 /* ---------- automation ---------- */
 .flow{display:grid;grid-template-columns:auto minmax(0,1fr) auto 78px 78px auto;gap:14px;align-items:center;padding:12px 2px;border-bottom:1px solid var(--line)}
 .flow:last-child{border-bottom:0}
-.fico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center}
+.fico{width:42px;height:42px;border-radius:calc(12px * var(--rf));display:grid;place-items:center}
 .fmain b{display:block;font-size:14px}.fmain span{display:block;font-size:12.5px;color:var(--muted)}
 .fmain .fsub{display:none}
 .metric b{display:block;font-size:14px}.metric span{font-size:11.5px;color:var(--muted)}
 .tog{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--green)}
 .tog.off{color:var(--muted)}
-.switch{width:40px;height:23px;border-radius:999px;background:#d4d7de;position:relative;transition:background .2s;flex-shrink:0}
+.switch{width:40px;height:23px;border-radius:calc(999px * var(--rf));background:var(--line2);position:relative;transition:background .2s;flex-shrink:0}
 .switch::after{content:"";position:absolute;top:3px;left:3px;width:17px;height:17px;border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
 .tog.on .switch{background:#22c55e}.tog.on .switch::after{left:20px}
 .fa{display:flex;gap:2px}
 
 /* ---------- scripts ---------- */
 .scripts{display:grid;grid-template-columns:290px minmax(0,1fr);gap:16px;align-items:start}
-.s-item{display:block;width:100%;text-align:left;padding:11px 12px;border-radius:12px;border:1px solid transparent;margin-bottom:4px}
-.s-item:hover{background:#f7f7f9}
+.s-item{display:block;width:100%;text-align:left;padding:11px 12px;border-radius:calc(12px * var(--rf));border:1px solid transparent;margin-bottom:4px}
+.s-item:hover{background:var(--hover)}
 .s-item.active{background:var(--brand-soft);border-color:var(--brand-soft2)}
 .s-item b{display:block;font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .s-item span{font-size:12px;color:var(--muted)}
-.dur{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--brand);background:var(--brand-soft);padding:6px 10px;border-radius:10px}
+.dur{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--brand-ink);background:var(--brand-soft);padding:6px 10px;border-radius:calc(10px * var(--rf))}
 
 /* ---------- stats ---------- */
 .chart-svg{width:100%;height:auto;display:block}
@@ -232,7 +232,7 @@ textarea.inp{resize:vertical;min-height:84px;line-height:1.5}
 .legend li i{width:10px;height:10px;border-radius:50%;display:inline-block}
 .legend li b{margin-left:auto}
 .tops{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.top{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;text-align:left;width:100%}
+.top{border-radius:calc(12px * var(--rf));overflow:hidden;border:1px solid var(--line);background:var(--card);text-align:left;width:100%}
 .top .thumb{height:96px;border-radius:0;position:relative;width:100%}
 .top .views{position:absolute;bottom:7px;left:8px;font-weight:700;font-size:12.5px;display:flex;gap:4px;align-items:center;text-shadow:0 1px 3px rgba(0,0,0,.35)}
 .top .tb{padding:8px;display:flex;flex-direction:column;gap:5px}
@@ -247,7 +247,7 @@ textarea.inp{resize:vertical;min-height:84px;line-height:1.5}
 .empty p{margin:4px 0 12px}
 
 /* ---------- toast ---------- */
-.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(16px);background:var(--navy);color:#fff;padding:10px 18px;border-radius:12px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:200;max-width:90vw;text-align:center}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(16px);background:#14213d;color:#fff;padding:10px 18px;border-radius:calc(12px * var(--rf));font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:200;max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* ---------- responsive ---------- */
@@ -258,7 +258,7 @@ textarea.inp{resize:vertical;min-height:84px;line-height:1.5}
 }
 @media (max-width:880px){
   .app{grid-template-columns:1fr}
-  .topbar{display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:8px 10px;padding-top:max(8px,env(safe-area-inset-top))}
+  .topbar{display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:30;background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:8px 10px;padding-top:max(8px,env(safe-area-inset-top))}
   .sidebar{position:fixed;left:0;top:0;bottom:0;width:276px;z-index:60;transform:translateX(-102%);transition:transform .22s ease;height:auto;box-shadow:0 0 40px rgba(0,0,0,.15);padding-top:max(24px,env(safe-area-inset-top))}
   body.menu-open .sidebar{transform:none}
   body.menu-open .backdrop{display:block;position:fixed;inset:0;background:rgba(15,23,42,.42);z-index:50}
@@ -266,9 +266,9 @@ textarea.inp{resize:vertical;min-height:84px;line-height:1.5}
   .page-head{margin-bottom:16px}
   .page-head h1,.hero h1{font-size:29px}
   .g2,.scripts,.g-wide{grid-template-columns:minmax(0,1fr)}
-  .bottomnav{display:flex;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);border-top:1px solid var(--line);z-index:40;padding:6px 4px;padding-bottom:max(6px,env(safe-area-inset-bottom))}
+  .bottomnav{display:flex;position:fixed;bottom:0;left:0;right:0;background:var(--glass);border-top:1px solid var(--line);z-index:40;padding:6px 4px;padding-bottom:max(6px,env(safe-area-inset-bottom))}
   .bottomnav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10.5px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 0}
-  .bottomnav a.active{color:var(--brand)}
+  .bottomnav a.active{color:var(--brand-ink)}
   .week{grid-template-columns:1fr;overflow:visible}
   .day{min-height:0}
   .day-h{display:flex;align-items:center;gap:10px;text-align:left;padding:0}
@@ -301,15 +301,15 @@ textarea.inp{resize:vertical;min-height:84px;line-height:1.5}
 /* ---------- empresas ---------- */
 .av,.ws-head .av,.ws-row .av,.hb-l .av,.hl .who .av{display:inline-grid;place-items:center;border-radius:30%;color:#fff!important;font-weight:800;flex-shrink:0;overflow:hidden;line-height:1}
 .av img{width:100%;height:100%;object-fit:contain;background:#fff}
-.ws-switch{display:flex;align-items:center;gap:10px;width:100%;padding:10px;border:1px solid var(--line);border-radius:14px;background:#fafafb;text-align:left;margin:0 0 16px}
-.ws-switch:hover{border-color:var(--brand-soft2);background:#fff}
+.ws-switch{display:flex;align-items:center;gap:10px;width:100%;padding:10px;border:1px solid var(--line);border-radius:calc(14px * var(--rf));background:var(--soft);text-align:left;margin:0 0 16px}
+.ws-switch:hover{border-color:var(--brand-soft2);background:var(--card)}
 .ws-switch .wt{flex:1;min-width:0}
 .ws-switch small{display:block;font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.07em}
 .ws-switch b{display:block;font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ws-top{display:none}
 .ws-kicker{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:var(--muted);margin-bottom:6px}
-.ws-row{display:flex;align-items:center;gap:12px;width:100%;padding:11px;border-radius:12px;text-align:left;border:1px solid transparent}
-.ws-row:hover{background:#f7f7f9}
+.ws-row{display:flex;align-items:center;gap:12px;width:100%;padding:11px;border-radius:calc(12px * var(--rf));text-align:left;border:1px solid transparent}
+.ws-row:hover{background:var(--hover)}
 .ws-row.on{background:var(--brand-soft);border-color:var(--brand-soft2)}
 .ws-row .grow{flex:1;min-width:0}.ws-row b{display:block}.ws-row span{font-size:12px;color:var(--muted)}
 .ws-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
@@ -319,34 +319,34 @@ textarea.inp{resize:vertical;min-height:84px;line-height:1.5}
 .ws-head b{display:block;font-size:15.5px}
 .ws-head span{font-size:12.5px;color:var(--muted)}
 .mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.mini div{background:#f8f9fb;border-radius:12px;padding:9px 10px;min-width:0}
+.mini div{background:var(--soft);border-radius:calc(12px * var(--rf));padding:9px 10px;min-width:0}
 .mini small{display:block;font-size:11px;color:var(--muted);font-weight:600}
 .mini b{font-size:15px}
 .mini em{font-style:normal;font-size:11.5px;font-weight:700;display:block}
 .ws-actions{display:flex;gap:8px;margin-top:auto}
 .ws-actions .btn{flex:1}
 .swatches{display:flex;gap:8px;flex-wrap:wrap}
-.sw{width:30px;height:30px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.sw{width:30px;height:30px;border-radius:50%;border:3px solid var(--card);box-shadow:0 0 0 1px var(--line)}
 .sw.on{box-shadow:0 0 0 2px var(--navy)}
-.sec-title{font-size:11.5px;font-weight:800;color:var(--brand);text-transform:uppercase;letter-spacing:.07em;margin:8px 0 10px}
+.sec-title{font-size:11.5px;font-weight:800;color:var(--brand-ink);text-transform:uppercase;letter-spacing:.07em;margin:8px 0 10px}
 .ws-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
-.ws-logo-row .logo-prev{width:56px;height:56px;border-radius:14px}
+.ws-logo-row .logo-prev{width:56px;height:56px;border-radius:calc(14px * var(--rf))}
 
 /* ---------- nicho ---------- */
-.niche{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;background:linear-gradient(135deg,#fff,#fff6f8)}
-.niche-h{display:flex;align-items:center;gap:8px;color:var(--brand);font-size:13.5px;flex-wrap:wrap}
+.niche{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;background:linear-gradient(135deg,var(--card),var(--brand-soft))}
+.niche-h{display:flex;align-items:center;gap:8px;color:var(--brand-ink);font-size:13.5px;flex-wrap:wrap}
 .niche-h .btn{margin-left:auto}
 .niche-tags{display:flex;flex-wrap:wrap;gap:8px}
-.niche-tags span{background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:12.5px;font-weight:600;max-width:100%}
+.niche-tags span{background:var(--card);border:1px solid var(--line);border-radius:calc(10px * var(--rf));padding:6px 10px;font-size:12.5px;font-weight:600;max-width:100%}
 .niche-tags small{display:block;font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.warn-box{background:#fff8ee;border:1px solid #f6dfbd;color:#7c3d0a;border-radius:14px;padding:14px 16px;margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.warn-box{background:#fff8ee;border:1px solid #f6dfbd;color:#7c3d0a;border-radius:calc(14px * var(--rf));padding:14px 16px;margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .warn-box p{margin:0;flex:1;min-width:220px}
-details.how{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:16px}
+details.how{background:var(--card);border:1px solid var(--line);border-radius:calc(14px * var(--rf));margin-bottom:16px}
 details.how summary{cursor:pointer;padding:13px 16px;font-weight:700;display:flex;gap:8px;align-items:center;list-style:none}
 details.how summary::-webkit-details-marker{display:none}
 details.how summary::after{content:"+";margin-left:auto;font-size:18px;color:var(--muted)}
 details.how[open] summary::after{content:"–"}
-details.how .how-b{padding:0 16px 14px;color:#374151;font-size:13.5px;line-height:1.6}
+details.how .how-b{padding:0 16px 14px;color:var(--text2);font-size:13.5px;line-height:1.6}
 details.how ol,details.how ul{margin:6px 0;padding-left:20px}
 details.how p{margin:6px 0}
 .result{position:relative}
@@ -354,10 +354,10 @@ details.how p{margin:6px 0}
 .result .rt{padding-right:26px}
 
 /* ---------- guion automático ---------- */
-.auto-card{margin-bottom:16px;background:linear-gradient(135deg,#fff,#fff6f8)}
+.auto-card{margin-bottom:16px;background:linear-gradient(135deg,var(--card),var(--brand-soft))}
 .auto-grid{display:grid;grid-template-columns:minmax(0,2.2fr) repeat(3,minmax(0,1fr)) auto;gap:12px;align-items:end}
 .auto-grid .field{margin:0}
-.goal-chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--brand);background:var(--brand-soft);padding:4px 10px;border-radius:999px}
+.goal-chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--brand-ink);background:var(--brand-soft);padding:4px 10px;border-radius:calc(999px * var(--rf))}
 
 /* ---------- comparativo ---------- */
 .hl .who{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;margin-top:8px;min-width:0}
@@ -365,8 +365,8 @@ details.how p{margin:6px 0}
 .hb{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr) 84px;gap:10px;align-items:center;padding:7px 0}
 .hb-l{display:flex;align-items:center;gap:8px;min-width:0;font-weight:600;font-size:13px}
 .hb-l span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.hb-track{height:12px;background:#f1f2f5;border-radius:999px;overflow:hidden}
-.hb-bar{height:100%;border-radius:999px}
+.hb-track{height:12px;background:var(--soft);border-radius:calc(999px * var(--rf));overflow:hidden}
+.hb-bar{height:100%;border-radius:calc(999px * var(--rf))}
 .hb>b{text-align:right;font-size:13px}
 .legend-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;font-size:12.5px;font-weight:600}
 .legend-row span{display:inline-flex;align-items:center;gap:6px}
@@ -383,7 +383,7 @@ details.how p{margin:6px 0}
 @media print{
   @page{size:letter;margin:12mm}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  body{background:#fff}
+  body{background:var(--card)}
   .sidebar,.topbar,.bottomnav,.backdrop,.toast,.no-print,.modal-wrap{display:none!important}
   .app{display:block}
   .main{padding:0!important}
@@ -410,6 +410,77 @@ details.how p{margin:6px 0}
   .mini b{font-size:14px}
 }
 
+
+/* ---------- tema: modo oscuro y menú de color ---------- */
+:root[data-mode=dark]{--bg:#111318;--card:#1b1e26;--text:#e6e8ee;--text2:#c2c7d1;--muted:#9aa1ad;--muted2:#737a88;--line:#2b2f3a;--line2:#3a3f4c;--soft:#22262f;--hover:#262a34;--navy:#f2f3f7;--glass:rgba(27,30,38,.94);--shadow:none;color-scheme:dark}
+:root[data-mode=dark] .tint-blue{background:rgba(37,99,235,.13);border-color:rgba(37,99,235,.3)}
+:root[data-mode=dark] .tint-rose{background:rgba(225,29,72,.13);border-color:rgba(225,29,72,.3)}
+:root[data-mode=dark] .tint-amber{background:rgba(234,88,12,.13);border-color:rgba(234,88,12,.3)}
+:root[data-mode=dark] .tint-green{background:rgba(22,163,74,.13);border-color:rgba(22,163,74,.3)}
+:root[data-mode=dark] .tint-violet{background:rgba(124,58,237,.15);border-color:rgba(124,58,237,.32)}
+:root[data-mode=dark] .warn-box,:root[data-mode=dark] .note-box,:root[data-mode=dark] .sync-pill.warn{background:rgba(245,158,11,.12);border-color:rgba(245,158,11,.3);color:#fbbf24}
+:root[data-mode=dark] .modal-wrap{background:rgba(0,0,0,.6)}
+:root[data-mode=dark] .c-rose,:root[data-mode=dark] .c-violet,:root[data-mode=dark] .c-blue,:root[data-mode=dark] .c-green,:root[data-mode=dark] .c-orange,:root[data-mode=dark] .c-pink{filter:saturate(1.1) brightness(.92)}
+:root[data-sidebar=marca] .sidebar{background:var(--brand);border-right-color:transparent;color:var(--on-brand)}
+:root[data-sidebar=marca] .sidebar .logo{color:var(--on-brand)}
+:root[data-sidebar=marca] .sidebar .nav a{color:var(--on-brand);opacity:.85}
+:root[data-sidebar=marca] .sidebar .nav a:hover{background:rgba(255,255,255,.12);opacity:1}
+:root[data-sidebar=marca] .sidebar .nav a.active{background:rgba(255,255,255,.2);color:var(--on-brand);opacity:1}
+:root[data-sidebar=marca] .sidebar .ws-switch{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22);color:var(--on-brand)}
+:root[data-sidebar=marca] .sidebar .ws-switch small{color:inherit;opacity:.75}
+:root[data-sidebar=marca] .sidebar .install-card{background:rgba(0,0,0,.2)}
+:root[data-sidebar=marca] .sidebar .side-bottom .nav{border-top-color:rgba(255,255,255,.22)}
+:root[data-sidebar=marca] .sidebar .sync-pill{background:rgba(255,255,255,.12);color:var(--on-brand)}
+
+/* ---------- sincronización ---------- */
+.sync-pill{display:flex;align-items:center;gap:8px;width:100%;font-size:12px;font-weight:600;color:var(--muted);padding:8px 12px;border-radius:calc(10px * var(--rf));text-align:left;margin-bottom:10px;background:var(--soft)}
+.sync-pill i{width:8px;height:8px;border-radius:50%;background:var(--muted2);flex-shrink:0}
+.sync-pill.ok i{background:#22c55e}
+.sync-pill.warn{color:#b45309;background:#fff8ee}.sync-pill.warn i{background:#f59e0b}
+.sync-pill span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ol.steps{margin:0 0 14px;padding-left:20px;line-height:1.7;color:var(--text2)}
+.choice{display:flex;flex-direction:column;gap:8px;margin:14px 0}
+.tip-card{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.tip-card>.ic{color:var(--brand-ink)}
+
+/* ---------- diseño ---------- */
+.chips.wrap{flex-wrap:wrap;overflow:visible;margin-bottom:0;padding-bottom:0}
+.font-opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.font-opt{border:1px solid var(--line);border-radius:calc(12px * var(--rf));padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--card)}
+.font-opt span{font-size:26px;line-height:1.2;color:var(--navy)}
+.font-opt small{font-size:11.5px;color:var(--muted);font-weight:600}
+.font-opt.active{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.sw-custom{position:relative;overflow:hidden;background:conic-gradient(#ef4444,#f59e0b,#84cc16,#06b6d4,#6366f1,#d946ef,#ef4444);cursor:pointer;display:inline-block}
+.sw-custom input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;border:0;padding:0}
+
+/* ---------- ficha ---------- */
+.progress{height:10px;background:var(--soft);border-radius:999px;overflow:hidden}
+.progress div{height:100%;background:var(--brand);border-radius:999px;transition:width .3s}
+.ficha-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.ficha-top .grow{flex:1;min-width:200px}
+.fhint{font-size:11.5px;color:var(--muted);line-height:1.4}
+.prod-prev{display:flex;flex-wrap:wrap;gap:6px;margin:-4px 0 12px}
+.prod-prev span{font-size:12px;background:var(--brand-soft);color:var(--brand-ink);padding:4px 10px;border-radius:999px;font-weight:600}
+.full-span{grid-column:1/-1}
+.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:end}
+
+/* ---------- creador ---------- */
+.creator .chips{margin-bottom:14px}
+.c-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;align-items:end}
+.c-grid .field{margin:0}
+.c-row{display:flex;gap:10px;align-items:flex-end;margin-top:12px}
+.c-row .field{flex:1;margin:0}
+.note-box{font-size:12.5px;background:#fff8ee;color:#7c3d0a;border:1px solid #f6dfbd;border-radius:calc(12px * var(--rf));padding:9px 12px;margin-bottom:12px}
+.scripts .chips .chip{padding:5px 10px;font-size:12.5px}
+.kbadge{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:999px;background:var(--brand-soft);color:var(--brand-ink);margin-right:5px}
+.creator a{color:var(--brand-ink)}
+@media (max-width:880px){
+  .row3{grid-template-columns:1fr 1fr}
+  .c-row{flex-direction:column;align-items:stretch}
+  .font-opts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .creator .chip{padding:6px 10px;font-size:12.5px;gap:5px}
+}
+@media print{:root[data-mode=dark]{--bg:#fff;--card:#fff;--text:#1f2433;--text2:#4b5263;--muted:#6b7280;--line:#e7e9ef;--soft:#f8f9fb;--hover:#f3f4f6;--navy:#14213d}}
 </style>
 </head>
 <body>
@@ -514,7 +585,10 @@ const I={
  printer:'<path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/>',
  info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>',
  trophy:'<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',
- target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>'
+ target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+ store:'<path d="M3 9l1.5-5h15L21 9M3 9h18M3 9v1a3 3 0 0 0 6 0V9m0 1a3 3 0 0 0 6 0V9m0 1a3 3 0 0 0 6 0V9M5 13v8h14v-8M10 21v-5h4v5"/>',
+ palette:'<circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2a10 10 0 0 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1.1.9-2 2-2h2.4A5.6 5.6 0 0 0 22 9.8C22 5.5 17.5 2 12 2z"/>',
+ link:'<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>'
 };
 const ic=(n,s=18,w=1.8)=>`<svg class="ic" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[n]||''}</svg>`;
 
@@ -532,7 +606,7 @@ const GOALS={vender:'Vender',educar:'Educar',entretener:'Entretener',conectar:'C
 const TONES=['Cercano','Profesional','Divertido','Inspirador','Elegante'];
 const BIZ_GOALS=['Vender más','Ganar seguidores','Educar a su público','Fidelizar clientes'];
 const WS_COLORS=['#800020','#db2777','#7c3aed','#2563eb','#0891b2','#059669','#ca8a04','#ea580c','#92400e','#334155'];
-const NAV=[['inicio','Inicio','home'],['empresas','Empresas','briefcase'],['planificador','Planificador','calendar'],['ideas','Ideas con IA','bulb'],['guiones','Guiones','file'],['automatizacion','Automatización','zap'],['estadisticas','Estadísticas','chart'],['comparativo','Comparativo','scale']];
+const NAV=[['inicio','Inicio','home'],['empresas','Empresas','briefcase'],['ficha','Ficha del negocio','store'],['planificador','Planificador','calendar'],['ideas','Ideas con IA','bulb'],['guiones','Guiones y copys','file'],['automatizacion','Automatización','zap'],['estadisticas','Estadísticas','chart'],['comparativo','Comparativo','scale']];
 const CATS=[
  {id:'reels',name:'Ideas de Reels',desc:'Videos cortos pensados para su nicho.',icon:'video',color:'c-rose',pillars:true},
  {id:'carruseles',name:'Ideas de Carruseles',desc:'Contenido de valor para guardar y compartir.',icon:'image',color:'c-violet',pillars:true},
@@ -547,15 +621,218 @@ const CATS=[
 /* =========================================================
    Perfil del nicho → contexto para generar
    ========================================================= */
+const splitLines=s=>String(s||'').split(/\n/).map(x=>x.trim().replace(/^[-•*·✔️✅]+\s*/,'')).filter(Boolean);
+function fmtPrice(p){p=String(p||'').trim();if(!p)return '';if(/^\$?\s*\d[\d.,\s]*$/.test(p)){const n=+p.replace(/[$.,\s]/g,'');if(n>0)return '$'+n.toLocaleString('es-CO');}return p;}
+function parseProducts(s){return splitLines(s).map(l=>{const parts=l.split('|').map(x=>x.trim());return {name:parts[0]||'',price:fmtPrice(parts[1]),desc:parts.slice(2).join(' | ')};}).filter(p=>p.name);}
+const FICHA_KEYS=['sector','description','city','products','productList','promo','audience','pains','benefits','diff','faqs','whatsapp','instagram','schedule','delivery','payment','keywords'];
+const fichaPct=w=>{const n=(w&&w.niche)||{};return Math.round(FICHA_KEYS.filter(k=>String(n[k]||'').trim()).length/FICHA_KEYS.length*100);};
 function nctx(ws){
   ws=ws||D;const n=ws.niche||{};
   const brand=(ws.name||'la marca').replace(/\s*\(ejemplo\)\s*$/i,'').trim();
-  const sector=(n.sector||'').trim(),aud=(n.audience||'').trim(),prod=(n.products||'').trim();
-  return {brand,sector:sector||'nuestro negocio',aud:aud||'nuestros clientes',prod:prod||sector||'nuestros productos',
-    prodRaw:prod,sectorRaw:sector,audRaw:aud,diff:(n.diff||'').trim(),tone:n.tone||'Cercano',goal:n.goal||'Vender más',
-    keys:(n.keywords||'').split(',').map(s=>s.trim()).filter(Boolean),hasProfile:!!(sector||prod)};
+  const list=parseProducts(n.productList);
+  const sector=(n.sector||'').trim(),aud=(n.audience||'').trim();
+  const prodSum=(n.products||'').trim()||(list.length?list.slice(0,2).map(p=>p.name).join(' y '):'');
+  let ig=(n.instagram||'').trim();if(ig&&!ig.startsWith('@')&&!/^https?:/i.test(ig)&&!/\./.test(ig))ig='@'+ig;
+  return {brand,sector:sector||'nuestro negocio',aud:aud||'nuestros clientes',prod:prodSum||sector||'nuestros productos',
+    prodRaw:prodSum,sectorRaw:sector,audRaw:aud,diff:(n.diff||'').trim(),tone:n.tone||'Cercano',goal:n.goal||'Vender más',
+    keys:(n.keywords||'').split(',').map(s=>s.trim()).filter(Boolean),hasProfile:!!(sector||prodSum),
+    list,desc:(n.description||'').trim(),benefits:splitLines(n.benefits),pains:splitLines(n.pains),faqs:splitLines(n.faqs),
+    promo:(n.promo||'').trim(),city:(n.city||'').trim(),schedule:(n.schedule||'').trim(),delivery:(n.delivery||'').trim(),payment:(n.payment||'').trim(),
+    wa:(n.whatsapp||'').trim(),ig,web:(n.web||'').trim(),ctaPref:(n.ctaPref||'').trim(),emoji:n.emoji!==false};
 }
 
+/* =========================================================
+   Creador automático: guiones, carruseles, historias, copys,
+   mensajes de WhatsApp y anuncios según el caso y la empresa
+   ========================================================= */
+const KINDS={
+ reel:{label:'Guion de Reel / TikTok',short:'Reel',icon:'film',type:p=>typeFor(p,'video'),labels:['Gancho (primeros 3 segundos)','Escenas','Cierre / llamado a la acción','Texto para publicar (copy y hashtags)']},
+ carrusel:{label:'Carrusel',short:'Carrusel',icon:'image',type:p=>typeFor(p,'carousel'),labels:['Portada (slide 1)','Slides de contenido','Última slide (llamado a la acción)','Copy de la publicación']},
+ historias:{label:'Historias',short:'Historias',icon:'sparkles',type:()=>'Historia',labels:['Historia 1 (apertura)','Historias siguientes','Última historia (llamado a la acción)','Notas']},
+ copy:{label:'Copy para publicación',short:'Copy',icon:'type',type:()=>'Post',labels:['Primera línea (gancho)','Cuerpo del copy','Llamado a la acción','Hashtags']},
+ whatsapp:{label:'Mensaje de WhatsApp',short:'WhatsApp',icon:'msg',type:()=>'Post',labels:['Saludo','Mensaje','Cierre','Notas']},
+ anuncio:{label:'Anuncio pagado',short:'Anuncio',icon:'target',type:()=>'Post',labels:['Titular (máx. 40 caracteres)','Texto principal','Botón y llamado a la acción','Descripción y público sugerido']}
+};
+const FALLBACK_B=['calidad que se nota','atención personalizada','cumplimos lo que prometemos'];
+const desde=p=>/^(desde|a partir|gratis)/i.test(p)?p:'desde '+p;
+const endP=s=>{s=String(s||'').trim();return !s||/[.?!…”"»\]]$/.test(s)?s:s+'.';};
+const lc=s=>/^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]/.test(s||'')?s.charAt(0).toLowerCase()+s.slice(1):s;
+const isPl=s=>/\sy\s/.test(s)||/s$/i.test(String(s).trim().split(/\s+/)[0]||'');
+const listJoin=a=>a.length<2?(a[0]||''):a.slice(0,-1).join(', ')+' y '+a[a.length-1];
+const qfmt=q=>{q=String(q).trim();if(!/^¿/.test(q))q='¿'+q;if(!/\?$/.test(q))q=q.replace(/[.!]+$/,'')+'?';return q;};
+function cctx(N,pi,detail){
+  const p=pi!==''&&pi!=null&&N.list[+pi]?N.list[+pi]:null;
+  const P=p?lc(p.name):N.prod;
+  const B=shuffle(N.benefits.slice());FALLBACK_B.forEach(f=>{if(B.length<3)B.push(f);});
+  return {N,P,price:p?p.price:'',pdesc:p?p.desc:'',B,pain:N.pains.length?pick(N.pains):`buscar ${P} y no encontrar una opción de confianza`,diff:N.diff||B[2],D:String(detail||'').trim()};
+}
+function ctaLine(C,word){const N=C.N;if(N.ctaPref)return endP(N.ctaPref);if(N.wa)return `Escríbenos "${word}" al WhatsApp ${N.wa}.`;if(N.ig)return `Escríbenos "${word}" por mensaje directo a ${N.ig}.`;return `Escríbenos "${word}" por mensaje directo.`;}
+const CASES=[
+ {id:'producto',label:'Mostrar un producto o servicio',ph:'Opcional: algo que quieras destacar',build:C=>({
+   title:cap(C.P),short:cap(C.P),word:'QUIERO',button:'Comprar',
+   hooks:[`Si buscas ${C.P}, mira esto.`,`Uno de los favoritos de nuestros clientes: ${C.P}.`,`${cap(C.P)}: lo que necesitas saber antes de pedirlo.`],
+   points:[{show:`${cap(C.P)} en primer plano`,say:`Te presentamos ${C.P}${C.pdesc?`: ${C.pdesc}`:''}`},
+     {show:'Detalle, textura o acabado',say:`Lo que más gusta: ${C.B[0]}`},
+     C.D?{show:'Texto en pantalla con lo que quieres destacar',say:cap(C.D)}:null,
+     {show:'El producto en uso real',say:`Además: ${C.B[1]}`},
+     {show:'Precio en pantalla',say:C.price?`Precio: ${C.price}`:'Pregunta por las opciones disponibles'},
+     {show:'Cómo pedir: chat o perfil',say:C.N.delivery?cap(C.N.delivery):'Lo pides en un solo mensaje'}]})},
+ {id:'lanzamiento',label:'Lanzamiento de algo nuevo',ph:'Opcional: fecha de lanzamiento o detalle',build:C=>({
+   title:`Lanzamiento: ${C.P}`,short:`Nuevo: ${C.P}`,word:'NUEVO',button:'Más información',
+   hooks:[`Llegó algo nuevo a ${C.N.brand} y queremos que seas de los primeros en conocerlo.`,'Por fin te podemos mostrar lo que estábamos preparando.',`Esto es nuevo en ${C.N.brand} y lo hicimos pensando en ti.`],
+   points:[{show:'Revelación: tapa el producto y descúbrelo en cámara',say:`Te presentamos ${C.P}${C.pdesc?`: ${C.pdesc}`:''}`},
+     {show:'Primer plano de los detalles',say:`Lo creamos para ${C.N.aud}: ${C.B[0]}`},
+     {show:'El producto en uso real',say:`Lo que lo hace diferente: ${C.diff}`},
+     C.D?{show:'Calendario o texto con la fecha',say:cap(C.D)}:null,
+     {show:'Texto en pantalla con el precio',say:C.price?`Ya está disponible, ${desde(C.price)}`:'Ya está disponible'}]})},
+ {id:'promocion',label:'Promoción o descuento',ph:'Ej. 20 % de descuento hasta el domingo',build:C=>{const pr=C.D||C.N.promo||'un precio especial por tiempo limitado';return {
+   title:`Promoción: ${pr}`,short:cap(pr),word:'PROMO',button:'Enviar mensaje',
+   hooks:[`Esto no pasa seguido: ${pr} en ${C.N.brand}.`,`Si estabas esperando el momento para pedir ${C.P}, es ahora.`,`Atención: ${pr}. Te contamos cómo aprovecharla.`],
+   points:[{show:'Texto grande en pantalla con la promoción',say:`Tenemos ${pr}`},
+     {show:`${cap(C.P)} en primer plano`,say:`Aplica para ${C.P}`},
+     {show:'Detalle de calidad del producto',say:`Es la misma calidad de siempre: ${C.B[0]}`},
+     {show:'Calendario o reloj en pantalla',say:'Es por tiempo limitado, así que no lo dejes para después'},
+     {show:'Cómo pedir: chat o perfil',say:C.N.delivery?`Pedir es fácil: ${C.N.delivery}`:'Pedir es fácil: nos escribes y listo'}]};}},
+ {id:'fecha',label:'Fecha especial',ph:'Ej. Día de la Madre, Amor y Amistad, Navidad',build:C=>{const raw=C.D||'esta fecha especial',f=/^d[ií]a\b/i.test(raw)?'el '+raw:raw,pl=isPl(C.P);return {
+   title:`${cap(raw)} en ${C.N.brand}`,short:cap(raw),word:'REGALO',button:'Comprar',
+   hooks:[`${cap(f)} se celebra mejor con ${C.P}.`,`¿Ya sabes qué vas a regalar para ${f}?`,`Para ${f} preparamos algo especial en ${C.N.brand}.`],
+   points:[{show:'Ambiente decorado según la fecha',say:`${cap(f)} es para celebrar con quienes más quieres`},
+     {show:`${cap(C.P)} como regalo`,say:pl?`${cap(C.P)} son un detalle que se recuerda: ${C.B[0]}`:`${cap(C.P)} es un detalle que se recuerda: ${C.B[0]}`},
+     {show:'Opciones o variedades en pantalla',say:`Tenemos opciones para todos los gustos${C.price?`, ${desde(C.price)}`:''}`},
+     C.N.promo?{show:'Texto con la promoción',say:`Y para esta fecha: ${C.N.promo}`}:null,
+     {show:'Calendario marcando la fecha',say:'Separa tu pedido con anticipación para asegurar tu fecha'}]};}},
+ {id:'tips',label:'Tips o contenido educativo',ph:'Tema, ej. cómo elegir la torta ideal',build:C=>{const t=C.D||C.P,T=topicForms(t),q=C.N.faqs[0];return {
+   title:`Tips: ${t}`,short:`Tips: ${t}`,word:'INFO',button:'Más información',
+   hooks:[`3 cosas que debes saber sobre ${t}.`,`Lo que nadie te explica sobre ${t}.`,`Si ${T.cuesta}, guarda este contenido.`],
+   points:[{show:'Hablando a cámara, plantea el problema',say:`Sabemos lo que es ${C.pain}`},
+     {show:'Texto en pantalla: Tip 1',say:'Tip 1: antes de decidir, ten claro qué necesitas y para cuándo'},
+     {show:'Texto en pantalla: Tip 2',say:`Tip 2: no te fijes solo en el precio; fíjate en esto: ${C.B[0]}`},
+     {show:'Texto en pantalla: Tip 3',say:q?`Tip 3: antes de pagar, pregunta siempre esto: “${qfmt(q)}”`:'Tip 3: antes de pagar, pregunta siempre por tiempos de entrega y garantías'},
+     {show:`Muestra cómo lo hacen en ${C.N.brand}`,say:`En ${C.N.brand} lo hacemos así: ${C.diff}`}],
+   cta:'Guarda este contenido y compártelo con alguien que lo necesite.'};}},
+ {id:'proceso',label:'Cómo comprar / cómo funciona',ph:'Opcional',build:C=>({
+   title:`Así funciona ${C.N.brand}`,short:'Así de fácil es pedir',word:'PEDIR',button:'Enviar mensaje',
+   hooks:[`Así de fácil es pedir ${C.P} en ${C.N.brand}.`,`Te explicamos en 4 pasos cómo funciona ${C.N.brand}.`,'¿Primera vez con nosotros? Así funciona.'],
+   points:[{show:'Pantalla del chat o del perfil',say:`Paso 1: escríbenos ${C.N.wa?`al WhatsApp ${C.N.wa}`:'por mensaje directo'} y cuéntanos qué necesitas`},
+     {show:'Catálogo u opciones en pantalla',say:`Paso 2: te mostramos las opciones${C.price?` (${desde(C.price)})`:''} y eliges la tuya`},
+     {show:'Confirmación del pedido',say:`Paso 3: confirmas tu pedido${C.N.payment?` y pagas con ${C.N.payment}`:''}`},
+     {show:'Entrega o resultado final',say:C.N.delivery?`Paso 4: lo recibes así: ${C.N.delivery}`:'Paso 4: recibes tu pedido listo'}]})},
+ {id:'testimonio',label:'Testimonio de cliente',ph:'Opcional: frase real del cliente',build:C=>({
+   title:'Testimonio de cliente',short:'Lo que dicen nuestros clientes',word:'QUIERO',button:'Enviar mensaje',
+   note:'Usa solo testimonios reales y pide permiso al cliente antes de publicarlo. Completa lo que está entre corchetes.',
+   hooks:C.D?[`“${C.D.replace(/^["“]|["”]$/g,'')}”, así nos lo dijo un cliente.`]:['Esto nos dijo un cliente y no podíamos dejar de compartirlo.',`¿Vale la pena elegir ${C.N.brand}? Que lo cuente un cliente.`],
+   points:[{show:'Presenta al cliente (con su permiso)',say:'Te presentamos a [nombre del cliente]'},
+     {show:'El cliente cuenta su situación',say:`Antes de llegar a ${C.N.brand}, su problema era ${C.pain}`},
+     {show:'El producto o servicio en acción',say:`Le ofrecimos ${C.P}, con ${C.diff}`},
+     {show:'Reacción o resultado del cliente',say:'El resultado: [cuenta aquí el resultado o la frase del cliente]'},
+     {show:'Reseña en pantalla',say:`Gracias por confiar en ${C.N.brand}`}]})},
+ {id:'detras',label:'Detrás de cámara / proceso',ph:'Opcional',build:C=>({
+   title:`Detrás de cámara en ${C.N.brand}`,short:'Así lo hacemos',word:'INFO',button:'Más información',
+   hooks:[`Te mostramos lo que no se ve de ${C.N.brand}.`,'Esto es lo que pasa antes de que tu pedido llegue a tus manos.',`Un día normal en ${C.N.brand}.`],
+   points:[{show:'Inicio del día en el negocio',say:`Así empieza un día en ${C.N.brand}`},
+     {show:'Materiales, ingredientes o herramientas',say:'Todo empieza por escoger bien lo que usamos'},
+     {show:'El proceso en cámara rápida',say:C.D?cap(C.D):`Así trabajamos en ${C.P}`},
+     {show:'El equipo trabajando',say:'Detrás de cada pedido hay personas que lo hacen con cariño'},
+     {show:'Resultado final',say:`Y así queda listo para ti: ${C.B[0]}`}],
+   cta:`Síguenos para ver más de lo que pasa en ${C.N.brand}.`})},
+ {id:'presentacion',label:'Presentación de la marca',ph:'Opcional',build:C=>{const N=C.N;const info=[N.city?`Estamos en ${N.city}`:'',N.schedule?`Horario: ${N.schedule}`:'',N.delivery?cap(N.delivery):''].filter(Boolean).map(endP).join(' ');return {
+   title:`Conoce ${N.brand}`,short:`Conoce ${N.brand}`,word:'HOLA',button:'Más información',
+   hooks:[`Si no nos conoces, este es ${N.brand}.`,`Somos ${N.brand} y esto es lo que hacemos.`,`3 cosas que tienes que saber de ${N.brand}.`],
+   points:[{show:'Logo, fachada o equipo',say:N.desc||`Somos ${N.brand}: ${N.sector}${N.city?` en ${N.city}`:''}`},
+     {show:'Productos principales',say:`Ofrecemos ${N.list.length?listJoin(N.list.slice(0,3).map(p=>lc(p.name))):N.prod}`},
+     {show:'Clientes felices o el producto en uso',say:`Trabajamos para ${N.aud}`},
+     {show:'Lo que nos hace únicos',say:`Lo que nos hace diferentes: ${C.diff}`},
+     {show:'Datos de contacto en pantalla',say:info||'Escríbenos y te atendemos personalmente'}]};}},
+ {id:'faq',label:'Preguntas frecuentes',ph:'Opcional: una pregunta específica',build:C=>{const N=C.N;let qs=C.D?[C.D]:N.faqs.slice(0,4);
+   if(!qs.length)qs=[`¿Cuánto cuesta ${C.P}?`,'¿Hacen envíos?','¿Cómo se paga?','¿Con cuánto tiempo debo pedir?'];
+   const ans=q=>{const s=norm(q);const pm=N.list.find(p=>p.price&&words(p.name).some(w=>s.includes(w)));if(/cuest|precio|valor|vale/.test(s)&&(C.price||pm))return C.price?cap(desde(C.price)):`${cap(lc(pm.name))}: ${desde(pm.price)}`;if(/envio|domicil|entreg|llega/.test(s)&&N.delivery)return cap(N.delivery);if(/pag|tarjeta|nequi|transfer/.test(s)&&N.payment)return `Puedes pagar con ${N.payment}`;if(/horario|abren|hora|atienden/.test(s)&&N.schedule)return `Atendemos ${N.schedule}`;if(/donde|ubica|direcc/.test(s)&&N.city)return `Estamos en ${N.city}`;return '[Escribe aquí la respuesta]';};
+   return {title:'Preguntas frecuentes',short:'Resolvemos tus dudas',word:'PREGUNTA',button:'Enviar mensaje',
+   hooks:[`Respondemos las preguntas que más nos hacen en ${N.brand}.`,'¿Tienes dudas antes de pedir? Aquí van las respuestas.'],
+   points:qs.map(q=>({show:`Texto en pantalla: ${qfmt(q)}`,say:`${qfmt(q)} ${endP(ans(q))}`})),
+   cta:`¿Tienes otra pregunta? ${ctaLine(C,'PREGUNTA')}`};}},
+ {id:'objecion',label:'Responder una objeción (ej. “está caro”)',ph:'Ej. ¿Por qué es más caro que otros?',build:C=>({
+   title:'Respuesta a una objeción',short:'¿Por qué vale lo que vale?',word:'INFO',button:'Más información',
+   hooks:C.D?[`${qfmt(C.D)} Te respondemos con total sinceridad.`]:['“Está muy caro”. Hablemos de eso.',`¿Por qué ${C.P} de ${C.N.brand} vale lo que vale?`,`Te contamos lo que hay detrás del precio de ${C.P}.`],
+   points:[{show:'Hablando a cámara, tono cercano',say:'Entendemos la duda, y queremos explicarte qué incluye'},
+     {show:'Materiales o proceso',say:`Lo primero: ${C.B[0]}`},
+     {show:'Detalle de calidad',say:`Lo segundo: ${C.B[1]}`},
+     {show:'Lo que nos diferencia',say:`Y lo más importante: ${C.diff}`},
+     {show:'Cliente satisfecho o resultado',say:'No buscamos ser lo más barato, sino cumplir lo que prometemos'}]})},
+ {id:'antesdespues',label:'Antes y después / resultados',ph:'Opcional: qué cambió',build:C=>({
+   title:'Antes y después',short:'Mira la diferencia',word:'QUIERO',button:'Enviar mensaje',note:'Muestra solo resultados reales. Completa lo que está entre corchetes.',
+   hooks:['El antes y el después que nos encanta mostrar.','Mira la diferencia.',`De esto… a esto, con ${C.P}.`],
+   points:[{show:'Foto o video del ANTES',say:'Antes: [describe la situación inicial]'},
+     {show:'Proceso en cámara rápida',say:`Trabajamos con ${C.P}: ${C.diff}`},
+     {show:'Foto o video del DESPUÉS',say:C.D?`Después: ${C.D}`:'Después: [describe el resultado]'},
+     {show:'Reacción del cliente',say:'Resultados reales, sin filtros'}]})},
+ {id:'evento',label:'Evento, apertura o novedad',ph:'Ej. inauguración el sábado 9 a. m.',need:true,build:C=>{const ev=C.D;return {
+   title:`Evento: ${ev}`,short:cap(ev),word:'VOY',button:'Más información',
+   hooks:[`Tenemos noticias: ${ev}.`,`Marca la fecha: ${ev}.`,`Lo que estabas esperando en ${C.N.brand}: ${ev}.`],
+   points:[{show:'Anuncio en pantalla',say:cap(ev)},
+     {show:'Lugar o plataforma',say:C.N.city?`Será en ${C.N.city}. [Agrega dirección, fecha y hora]`:'[Agrega lugar, fecha y hora]'},
+     {show:'Qué vas a encontrar',say:`Vas a encontrar ${C.P} y todo lo que te gusta de ${C.N.brand}`},
+     {show:'Invitación a cámara',say:'Trae a quien quieras, te esperamos'}],
+   cta:'Guarda esta publicación para que no se te olvide y compártela con quien quieras invitar.'};}},
+ {id:'agenda',label:'Pide con anticipación / agenda',ph:'Opcional: fecha límite, ej. el viernes 24',build:C=>({
+   title:'Separa tu pedido con tiempo',short:'Separa tu fecha',word:'SEPARAR',button:'Enviar mensaje',
+   hooks:['Si vas a pedir para esta semana, este es tu aviso.',`Nuestra agenda se llena rápido: separa tu pedido de ${C.P} con tiempo.`],
+   points:[{show:'Agenda o calendario',say:'Trabajamos por pedido para darte la mejor calidad'},
+     {show:'Producto terminado',say:'Por eso te recomendamos pedir con anticipación'},
+     C.D?{show:'Texto con la fecha límite',say:`Recibimos pedidos hasta ${C.D}`}:null,
+     {show:'Chat del pedido',say:'Separar tu fecha toma menos de un minuto'},
+     {show:'Detalle de calidad',say:C.N.schedule?`Te atendemos ${C.N.schedule}`:'Te respondemos lo antes posible'}]})},
+ {id:'sorteo',label:'Sorteo o concurso',ph:'Premio, ej. una torta para 10 personas',build:C=>{const pz=C.D||C.P;return {
+   title:`Sorteo: ${pz}`,short:`Gana ${pz}`,word:'SORTEO',button:'Más información',note:'Revisa las reglas de concursos de cada red social y define la fecha en que anuncias al ganador.',
+   hooks:[`¡Sorteo! Gana ${pz} con ${C.N.brand}.`,`Queremos regalarte ${pz}.`],
+   points:[{show:'El premio en primer plano',say:`Estamos sorteando ${pz}`},
+     {show:'Texto: requisito 1',say:`1. Sigue a ${C.N.ig||C.N.brand}`},
+     {show:'Texto: requisito 2',say:'2. Dale me gusta a esta publicación'},
+     {show:'Texto: requisito 3',say:'3. Etiqueta a dos amigos en los comentarios'},
+     {show:'Fecha del ganador en pantalla',say:`Anunciamos al ganador el [fecha]${C.N.city?`. Válido para ${C.N.city}`:''}`}],
+   cta:'¡Participa ya y mucha suerte!'};}}
+];
+function createPiece(g){
+  const N=nctx(),kind=KINDS[g.kind]?g.kind:'reel',cs=CASES.find(c=>c.id===g.caseId)||CASES[0];
+  const C=cctx(N,g.prod,g.detail),o=cs.build(C);
+  const pts=o.points.filter(Boolean).map(p=>({show:p.show,say:endP(p.say)}));
+  const hook=endP(pick(o.hooks)),cta=o.cta||ctaLine(C,o.word),E=N.emoji;
+  const plat=SOCIAL.includes(g.plat)?g.plat:'Instagram';
+  const tags=[...new Set(nicheTags(C.P,N).concat([brandTag(N)]).concat(GEN_TAGS[plat]))];
+  const bullets=(arr,mark)=>arr.map(p=>`${E?mark:'•'} ${p.say}`).join('\n');
+  const copyTxt=n=>`${hook}${E?' ✨':''}\n\n${bullets(pts.slice(0,n),'✔️')}\n\n${cta}${E?' 👇':''}\n\n${tags.slice(0,plat==='TikTok'?5:10).join(' ')}`;
+  const r={hook:'',body:'',cta:'',caption:''};
+  if(kind==='reel'){
+    const secs=[15,30,60,90].includes(+g.secs)?+g.secs:30,n=Math.min(pts.length,{15:2,30:3,60:5,90:6}[secs]),sc=pts.slice(0,n),st=3,en=secs-4,step=(en-st)/Math.max(sc.length,1);
+    r.hook=`${hook}\nTexto en pantalla: ${o.short}`;
+    r.body=sc.map((p,i)=>`Escena ${i+1} (${Math.round(st+step*i)}–${Math.round(st+step*(i+1))} s)\nEn cámara: ${endP(p.show)}\nDi: “${p.say}”`).join('\n\n');
+    r.cta=cta+(plat==='YouTube'?' Y suscríbete para no perderte el próximo video.':'');
+    r.caption=copyTxt(3);
+  }else if(kind==='carrusel'){
+    r.hook=`${hook}\nDiseño: título grande y fondo con el color de la marca.`;
+    r.body=pts.map((p,i)=>`Slide ${i+2}: ${p.say}\nImagen: ${endP(p.show)}`).join('\n\n');
+    r.cta=`Slide ${pts.length+2}: ${cta}`;r.caption=copyTxt(3);
+  }else if(kind==='historias'){
+    const st=['Sticker: pregunta “¿Tienes dudas? Escríbenos aquí”','Sticker: deslizador de emoji 😍','Sticker: cuenta regresiva (si hay fecha límite)'];
+    r.hook=`${hook}\nFondo: ${endP(pts[0]?pts[0].show:'foto de la marca')}\nSticker: encuesta “¿Lo conocías?” Sí / No`;
+    r.body=pts.map((p,i)=>`Historia ${i+2}: ${p.say}\nFondo: ${endP(p.show)}${st[i]?'\n'+st[i]:''}`).join('\n\n');
+    r.cta=`Historia ${pts.length+2}: ${cta}\nSticker: ${N.wa||N.web?'enlace a tu WhatsApp o a tu página':'“Envíanos un mensaje”'}`;
+    r.caption='Publica las historias seguidas y luego guárdalas en un destacado. Los stickers ayudan a que tus seguidores interactúen.';
+  }else if(kind==='copy'){
+    r.hook=`${hook}${E?' ✨':''}`;r.body=bullets(pts,'✔️');r.cta=`${cta}${E?' 👇':''}`;r.caption=tags.slice(0,plat==='TikTok'?5:12).join(' ');
+  }else if(kind==='whatsapp'){
+    r.hook=`Hola${E?' 👋':''}, te escribimos de ${N.brand}.`;
+    r.body=`${hook}\n\n${pts.slice(0,3).map(p=>p.say).join(' ')}`;
+    r.cta=`Si te interesa, responde este mensaje con la palabra "${o.word}" y te ayudamos.`;
+    r.caption='Envíalo por lista de difusión o guárdalo como respuesta rápida en WhatsApp Business. Si puedes, cambia "Hola" por el nombre del cliente.';
+  }else{
+    const head=o.short.length>40?o.short.slice(0,39).replace(/\s+\S*$/,'')+'…':o.short;
+    r.hook=head;r.body=`${hook}\n\n${bullets(pts.slice(0,3),'✅')}\n\n${cta}`;r.cta=`Botón: ${o.button}`;
+    r.caption=`Descripción: ${C.price?cap(desde(C.price)):N.city?`${cap(N.sector)} en ${N.city}`:cap(C.B[0])}\nPúblico sugerido: ${N.aud}${N.city?` en ${N.city}`:''}.`;
+  }
+  const tidy=x=>String(x).replace(/([^.])\.\.(?!\.)/g,'$1.').replace(/([?!…])\.(?=\s|$|”)/g,'$1');
+  Object.keys(r).forEach(k=>{r[k]=tidy(r[k]);});
+  return Object.assign({title:tidy(`${o.title} · ${KINDS[kind].short}`),kind,platform:plat,note:o.note||'',gen:{v:2,kind,caseId:cs.id,prod:g.prod,plat,secs:g.secs,detail:g.detail}},r);
+}
 /* =========================================================
    Generador de guiones automáticos
    ========================================================= */
@@ -648,7 +925,7 @@ const GEN_TAGS={Instagram:['#reels','#instagram','#contenidodigital','#tipsdeins
 function nicheTags(t,N){
   const set=new Set();
   N.keys.forEach(k=>{const w=norm(k).replace(/\s+/g,'');if(w)set.add('#'+w);});
-  [t,N.sectorRaw,N.prodRaw].forEach(s=>{if(!s)return;const ws=words(s);if(ws.length>1)set.add('#'+ws.slice(0,3).join(''));ws.forEach(w=>set.add('#'+w));});
+  [t,N.sectorRaw,N.prodRaw].forEach(s=>{if(!s)return;const ws=words(s);if(ws.length>1)set.add('#'+ws.slice(0,2).join(''));ws.forEach(w=>set.add('#'+w));});
   return [...set];
 }
 const brandTag=N=>'#'+norm(N.brand).replace(/\s+/g,'');
@@ -738,7 +1015,7 @@ function seedWs(cfg){
 function seed(user){
   const wss=[
     seedWs({name:'Dulce Arte Pastelería (ejemplo)',color:'#db2777',
-      niche:{sector:'pastelería artesanal',audience:'familias que celebran en casa',products:'tortas personalizadas y postres',diff:'decoración a mano y entrega el mismo día',tone:'Cercano',goal:'Vender más',keywords:'tortas personalizadas, postres caseros, pastelería'},
+      niche:{sector:'pastelería artesanal',audience:'familias que celebran en casa',products:'tortas personalizadas y postres',diff:'decoración a mano y entrega el mismo día',tone:'Cercano',goal:'Vender más',keywords:'tortas personalizadas, postres caseros, pastelería',description:'Pastelería familiar que hace tortas y postres a mano para celebrar los momentos importantes.',city:'Medellín',productList:'Torta personalizada | 120000 | decorada a mano, para 15 personas\nCupcakes x12 | 45000 | sabores surtidos\nMesa de postres | 350000 | para eventos de 30 personas',promo:'10 % de descuento en tu primera torta',benefits:'ingredientes frescos\ndecoración hecha a mano\nentrega puntual',pains:'no tener tiempo para preparar la torta\nmiedo a que el pedido no llegue a tiempo',faqs:'¿Hacen domicilios?\n¿Con cuánto tiempo debo pedir?\n¿Cuánto cuesta una torta personalizada?',whatsapp:'300 000 0000',instagram:'@dulcearte.ejemplo',schedule:'lunes a sábado, 8 a. m. a 6 p. m.',delivery:'domicilios en Medellín el mismo día',payment:'Nequi, transferencia o efectivo'},
       content:[[0,'10:00','Reel','Así decoramos una torta de cumpleaños'],[1,'10:00','Carrusel','Los 5 sabores que más piden'],[1,'18:00','Historia','Encuesta: ¿chocolate o vainilla?'],[2,'10:00','Historia','Detrás de cámara en el horno'],[3,'10:00','Reel','La torta del mes'],[4,'18:00','Carrusel','Cómo pedir tu torta en 3 pasos'],[5,'10:00','TikTok','Reacción de una clienta'],
         [-7,'10:00','Reel','Torta de unicornio paso a paso','publicado',85000],[-6,'18:00','Carrusel','Guía de porciones por invitados','publicado',32000],[-5,'10:00','TikTok','Expectativa vs. realidad: tortas','publicado',120000],[-3,'10:00','Historia','Pedidos de la semana','publicado',9000]],
       split:[.62,.2,.15],tot:[8200,9100,10400,11900,13600],reach:[90000,120000,150000,170000,210000],inter:[7200,8600,11000,12800,16900],sales:[40,48,55,61,74],inc:[2400,2900,3300,3700,4500],
@@ -747,7 +1024,7 @@ function seed(user){
         ['Recordatorio de pedido','Confirma la entrega por WhatsApp.','calendar','WhatsApp','Hola, te recordamos que tu torta se entrega el [día] a las [hora]. ¿Confirmas la dirección?',310,94,0,0]],
       scriptTopic:'tortas personalizadas para cumpleaños',idea:'3 errores al pedir una torta personalizada'}),
     seedWs({name:'Café Montaña (ejemplo)',color:'#92400e',
-      niche:{sector:'café de especialidad',audience:'jóvenes profesionales amantes del café',products:'café en grano y métodos de preparación',diff:'café de origen tostado cada semana',tone:'Inspirador',goal:'Fidelizar clientes',keywords:'café de especialidad, barista, café colombiano'},
+      niche:{sector:'café de especialidad',audience:'jóvenes profesionales amantes del café',products:'café en grano y métodos de preparación',diff:'café de origen tostado cada semana',tone:'Inspirador',goal:'Fidelizar clientes',keywords:'café de especialidad, barista, café colombiano',description:'Tostadores de café de origen colombiano que llevan café fresco a tu casa.',city:'Bogotá',productList:'Café de origen 500 g | 38000 | tostado cada semana\nSuscripción mensual | 95000 | 3 bolsas al mes\nTaller de barismo | 120000 | 2 horas, cupos limitados',benefits:'café fresco tostado cada semana\ntrazabilidad desde la finca\nasesoría para preparar en casa',pains:'tomar café sin sabor\nno saber qué método de preparación elegir',faqs:'¿Venden café molido?\n¿Hacen envíos a otras ciudades?',instagram:'@cafemontana.ejemplo',delivery:'envíos a todo el país',payment:'tarjeta, Nequi o transferencia'},
       content:[[0,'08:00','Reel','Método V60 en 60 segundos'],[1,'08:00','Carrusel','Del cultivo a tu taza'],[2,'18:00','Historia','Encuesta: ¿filtrado o espresso?'],[3,'08:00','Reel','Latte art para principiantes'],[4,'08:00','Post','Café del mes'],[6,'10:00','Historia','Domingo de catación'],
         [-7,'08:00','Reel','3 errores al preparar café en casa','publicado',64000],[-6,'08:00','Carrusel','Guía de molienda','publicado',41000],[-4,'18:00','TikTok','Barista por un día','publicado',22000]],
       split:[.55,.15,.25],tot:[15000,15600,16100,16500,16900],reach:[200000,210000,190000,220000,230000],inter:[9000,9400,8800,10100,10600],sales:[120,118,130,126,140],inc:[3600,3540,3900,3780,4200],
@@ -756,7 +1033,7 @@ function seed(user){
         ['Responder comentarios','Respuesta automática a comentarios.','msg','Facebook','¡Gracias por comentar! Te enviamos la información por mensaje.',1800,70,0,0]],
       scriptTopic:'cómo preparar café de especialidad en casa',idea:'Mito o verdad: el café oscuro es más fuerte'}),
     seedWs({name:'Vital Fit Studio (ejemplo)',color:'#059669',
-      niche:{sector:'entrenamiento funcional',audience:'mujeres que quieren empezar a entrenar',products:'planes de entrenamiento y clases grupales',diff:'grupos pequeños con seguimiento personalizado',tone:'Divertido',goal:'Ganar seguidores',keywords:'entrenamiento funcional, fitness mujeres, rutina en casa'},
+      niche:{sector:'entrenamiento funcional',audience:'mujeres que quieren empezar a entrenar',products:'planes de entrenamiento y clases grupales',diff:'grupos pequeños con seguimiento personalizado',tone:'Divertido',goal:'Ganar seguidores',keywords:'entrenamiento funcional, fitness mujeres, rutina en casa',description:'Estudio de entrenamiento funcional para mujeres que quieren empezar a moverse sin miedo.',city:'Cali',productList:'Plan mensual | 180000 | 3 clases por semana\nPlan trimestral | 480000 | ahorra 20 %\nClase de prueba | Gratis | sin compromiso',benefits:'grupos pequeños\nseguimiento personalizado\nhorarios flexibles',pains:'miedo a empezar en un gimnasio\nno tener tiempo para entrenar',faqs:'¿Necesito experiencia?\n¿Qué horarios tienen?',whatsapp:'310 000 0000',schedule:'lunes a viernes, 5 a. m. a 9 p. m.'},
       content:[[0,'06:30','Reel','Rutina de 15 minutos en casa'],[1,'06:30','Carrusel','3 errores al empezar a entrenar'],[2,'19:00','TikTok','Expectativa vs. realidad: primer día'],[3,'06:30','Reel','Transformación de una alumna'],[4,'19:00','Historia','Clase grupal del viernes'],[5,'09:00','Carrusel','Plan semanal para principiantes'],
         [-7,'06:30','Reel','Sentadillas bien hechas','publicado',150000],[-6,'19:00','TikTok','Lo que nadie te dice del gimnasio','publicado',210000],[-5,'06:30','Carrusel','Qué comer antes de entrenar','publicado',54000],[-3,'19:00','Reel','Clase de prueba gratis','publicado',38000]],
       split:[.45,.4,.05],tot:[3100,4200,5600,7300,9800],reach:[40000,65000,98000,140000,205000],inter:[5200,7800,11500,16000,23500],sales:[6,9,14,18,25],inc:[480,720,1120,1440,2000],
@@ -768,7 +1045,7 @@ function seed(user){
   return {version:2,user:user||{name:'Nadine',brand:'NADINE'},activeId:wss[0].id,workspaces:wss};
 }
 function blankWs(name,color){return {id:uid(),name:name||'Mi primera empresa',color:color||'#800020',niche:{tone:'Cercano',goal:'Vender más'},created:Date.now(),content:[],ideas:[],scripts:[],flows:[],stats:[]};}
-function normWs(w){w=w||{};return {id:w.id||uid(),name:w.name||'Empresa',color:w.color||'#800020',logo:w.logo,niche:Object.assign({tone:'Cercano',goal:'Vender más'},w.niche||{}),created:w.created||Date.now(),
+function normWs(w){w=w||{};return {_u:w._u||0,id:w.id||uid(),name:w.name||'Empresa',color:w.color||'#800020',logo:w.logo,niche:Object.assign({tone:'Cercano',goal:'Vender más'},w.niche||{}),created:w.created||Date.now(),
   content:Array.isArray(w.content)?w.content:[],ideas:Array.isArray(w.ideas)?w.ideas:[],scripts:Array.isArray(w.scripts)?w.scripts:[],flows:Array.isArray(w.flows)?w.flows:[],stats:Array.isArray(w.stats)?w.stats:[]};}
 function migrateV1(o){
   const ws=normWs({name:'Mi empresa',content:o.content,ideas:o.ideas,scripts:o.scripts,flows:o.flows,stats:o.stats});
@@ -779,7 +1056,7 @@ function normalize(o){
   if(!Array.isArray(o.workspaces)&&Array.isArray(o.content))o=migrateV1(o);
   const wss=(o.workspaces||[]).map(normWs);
   if(!wss.length)wss.push(blankWs());
-  return {version:2,user:Object.assign({name:'Nadine',brand:'NADINE'},o.user||{}),activeId:wss.some(w=>w.id===o.activeId)?o.activeId:wss[0].id,workspaces:wss};
+  return {version:2,user:Object.assign({name:'Nadine',brand:'NADINE'},o.user||{}),activeId:wss.some(w=>w.id===o.activeId)?o.activeId:wss[0].id,workspaces:wss,deleted:Array.isArray(o.deleted)?o.deleted.slice(-300):[]};
 }
 function persist(data){try{localStorage.setItem(STORE_KEY,JSON.stringify(data));return true;}catch(e){return false;}}
 function load(){
@@ -787,16 +1064,20 @@ function load(){
   try{const old=localStorage.getItem(OLD_KEY);if(old){const m=normalize(JSON.parse(old));persist(m);return m;}}catch(e){}
   const s=seed();persist(s);return s;
 }
-function save(){if(!persist(S))toast('No se pudo guardar en este dispositivo');}
+let snaps=new Map(),userSnap='';
+const wsJson=w=>JSON.stringify(w,(k,v)=>k==='_u'?undefined:v);
+function snapshotAll(){snaps=new Map(S.workspaces.map(w=>[w.id,wsJson(w)]));userSnap=wsJson(S.user);}
+function stamp(){const now=Date.now();S.workspaces.forEach(w=>{const j=wsJson(w);if(snaps.get(w.id)!==j){w._u=now;snaps.set(w.id,j);}});const uj=wsJson(S.user);if(uj!==userSnap){S.user._u=now;userSnap=uj;}}
+function save(){stamp();if(!persist(S))toast('No se pudo guardar en este dispositivo');scheduleFileWrite();}
 
 let S=load(),D=null;
 function bindD(){D=S.workspaces.find(w=>w.id===S.activeId)||S.workspaces[0];S.activeId=D.id;}
-bindD();
-const VALID_TABS=['inicio','empresas','planificador','ideas','guiones','automatizacion','estadisticas','comparativo','configuracion'];
+bindD();snapshotAll();
+const VALID_TABS=['inicio','empresas','ficha','planificador','ideas','guiones','automatizacion','estadisticas','comparativo','configuracion'];
 const ui={tab:VALID_TABS.includes(location.hash.slice(1))?location.hash.slice(1):'inicio',week:mondayOf(new Date()),filter:'todos',
   ideaPlat:'Todas',ideaCat:'reels',pillar:'todos',topic:'',lastTopic:'',results:[],scriptId:null,flowChan:'Todos',statsMonth:null,cmpMonth:null,
-  gTopic:'',gGoal:'vender',gSecs:30,gPlat:'Instagram',wsDraft:null};
-function resetWsUi(){Object.assign(ui,{filter:'todos',results:[],lastTopic:'',topic:'',scriptId:null,flowChan:'Todos',statsMonth:null,gTopic:''});}
+  cKind:'reel',cCase:'producto',cProd:'',cPlat:'Instagram',cSecs:30,cDetail:'',sFilter:'todos',wsDraft:null,logoTarget:null,needRender:false,pendingFile:null};
+function resetWsUi(){Object.assign(ui,{filter:'todos',results:[],lastTopic:'',topic:'',scriptId:null,flowChan:'Todos',statsMonth:null,cProd:'',cDetail:'',sFilter:'todos'});}
 
 /* =========================================================
    Componentes
@@ -830,6 +1111,144 @@ function wsSummary(w,month){
 }
 
 /* =========================================================
+   Diseño de la app (colores, modo, tipografía, esquinas)
+   ========================================================= */
+const hex2rgb=h=>{h=String(h).replace('#','');if(h.length===3)h=h.split('').map(c=>c+c).join('');const n=parseInt(h,16)||0;return [n>>16&255,n>>8&255,n&255];};
+const rgb2hex=a=>'#'+a.map(v=>Math.max(0,Math.min(255,Math.round(v))).toString(16).padStart(2,'0')).join('');
+const mix=(a,b,t)=>{const A=hex2rgb(a),B=hex2rgb(b);return rgb2hex(A.map((v,i)=>v+(B[i]-v)*t));};
+const lum=h=>{const [r,g,b]=hex2rgb(h).map(v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4);});return .2126*r+.7152*g+.0722*b;};
+const THEME_DEF={mode:'light',color:'#800020',font:'elegante',radius:'redondeado',sidebar:'claro',wsColor:false};
+const THEME_COLORS=['#800020','#be123c','#db2777','#c026d3','#7c3aed','#4f46e5','#2563eb','#0891b2','#0d9488','#059669','#65a30d','#ca8a04','#ea580c','#92400e','#334155','#111827'];
+const JAKARTA="'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif";
+const FONTS={
+ elegante:{label:'Elegante',h:"'DM Serif Display',Georgia,serif",w:400,b:JAKARTA},
+ clasica:{label:'Clásica',h:"'Playfair Display',Georgia,serif",w:700,b:JAKARTA},
+ moderna:{label:'Moderna',h:JAKARTA,w:800,b:JAKARTA},
+ amigable:{label:'Amigable',h:"'Poppins',system-ui,sans-serif",w:600,b:"'Poppins',system-ui,sans-serif"}
+};
+const themeCfg=()=>Object.assign({},THEME_DEF,(S&&S.user&&S.user.theme)||{});
+let TH={brand:'#800020',brandLight:'#f4b6c4',card:'#fff',grid:'#eef0f4',axis:'#9aa1ad',text:'#1f2433',zero:'#cfd3db',onBrand:'#fff',onBrandSoft:'#fbd5df'};
+function applyTheme(){
+  const t=themeCfg(),root=document.documentElement,okHex=x=>/^#[0-9a-f]{6}$/i.test(x||'');
+  const dark=t.mode==='dark'||(t.mode==='auto'&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches);
+  let c=okHex(t.color)?t.color:THEME_DEF.color;if(t.wsColor&&D&&okHex(D.color))c=D.color;
+  const card=dark?'#1b1e26':'#ffffff',light=lum(c)>.42;
+  const v={'--brand':c,'--brand-d':mix(c,'#000000',.25),'--brand-2':mix(c,'#ffffff',.14),'--brand-3':mix(c,'#ffffff',.3),
+    '--brand-soft':mix(c,card,dark?.8:.9),'--brand-soft2':mix(c,card,dark?.62:.76),
+    '--brand-ink':dark?mix(c,'#ffffff',.45):(light?mix(c,'#000000',.4):c),'--on-brand':light?'#1f2433':'#ffffff',
+    '--rf':String({redondeado:1,suave:.55,recto:.2}[t.radius]||1)};
+  const F=FONTS[t.font]||FONTS.elegante;v['--serif']=F.h;v['--sans']=F.b;v['--hw']=String(F.w);
+  Object.entries(v).forEach(([k,x])=>root.style.setProperty(k,x));
+  PLAT.TikTok=dark?'#d1d5db':'#111827';
+  root.dataset.mode=dark?'dark':'light';root.dataset.sidebar=t.sidebar==='marca'?'marca':'claro';
+  TH={brand:c,brandLight:mix(c,card,.62),card,grid:dark?'#2b2f3a':'#eef0f4',axis:dark?'#80879a':'#9aa1ad',text:dark?'#e6e8ee':'#1f2433',zero:dark?'#3a3f4c':'#cfd3db',onBrand:light?'#1f2433':'#ffffff',onBrandSoft:light?'#3b4252':mix(c,'#ffffff',.78)};
+  const m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',dark?'#1b1e26':c);
+}
+
+/* =========================================================
+   Archivo de datos compartido: misma información en Chrome y Edge
+   ========================================================= */
+const FS_OK=typeof window.showSaveFilePicker==='function'&&typeof window.showOpenFilePicker==='function'&&window.isSecureContext!==false&&location.protocol!=='file:';
+const FS={h:null,state:'off',name:'',lastMod:0,lastSync:0,writing:false,again:false};
+const FILE_TYPES=[{description:'Datos de la app',accept:{'application/json':['.json']}}];
+function idbOpen(){return new Promise((res,rej)=>{try{const r=indexedDB.open('nadine-app',1);r.onupgradeneeded=()=>r.result.createObjectStore('kv');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);}catch(e){rej(e);}});}
+async function kv(op,k,v){const db=await idbOpen();return new Promise((res,rej)=>{const tx=db.transaction('kv',op==='get'?'readonly':'readwrite'),st=tx.objectStore('kv');const rq=op==='get'?st.get(k):op==='del'?st.delete(k):st.put(v,k);rq.onsuccess=()=>res(rq.result);rq.onerror=()=>rej(rq.error);});}
+const isTyping=()=>{const a=document.activeElement;return !!a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)&&a.type!=='checkbox'&&a.type!=='color';};
+const modalOpen=()=>$('#modal').classList.contains('open');
+function fsSet(state){FS.state=state;renderSidebar();if(!isTyping()&&!modalOpen()&&(ui.tab==='configuracion'||ui.tab==='inicio'||state==='perm'))render();}
+const stripLocal=o=>JSON.stringify(Object.assign({},o,{activeId:null}));
+function mergeData(a,b){
+  const del=new Set([...(a.deleted||[]),...(b.deleted||[])]),map=new Map();
+  [...b.workspaces,...a.workspaces].forEach(w=>{if(del.has(w.id))return;const cur=map.get(w.id);if(!cur||(w._u||0)>(cur._u||0))map.set(w.id,w);});
+  let wss=[...map.values()].sort((x,y)=>(x.created||0)-(y.created||0));if(!wss.length)wss=[blankWs()];
+  const user=((a.user&&a.user._u)||0)>=((b.user&&b.user._u)||0)?a.user:b.user;
+  return {version:2,user,activeId:wss.some(w=>w.id===a.activeId)?a.activeId:wss[0].id,workspaces:wss,deleted:[...del].slice(-300)};
+}
+function applyIncoming(next){
+  S=next;bindD();persist(S);snapshotAll();applyTheme();
+  if(isTyping()||modalOpen()){ui.needRender=true;renderSidebar();}else render();
+}
+async function fsInit(){
+  if(!FS_OK)return;
+  try{const h=await kv('get','dataFile');if(!h){fsSet('off');return;}
+    FS.h=h;FS.name=h.name;const p=await h.queryPermission({mode:'readwrite'});
+    if(p==='granted'){FS.state='ok';await fsPull(true);fsSet('ok');}else fsSet('perm');
+  }catch(e){fsSet('off');}
+}
+async function fsConnectNew(){
+  try{const h=await window.showSaveFilePicker({suggestedName:'nadine-datos.json',types:FILE_TYPES});
+    FS.h=h;FS.name=h.name;try{await kv('put','dataFile',h);}catch(e){}
+    FS.state='ok';FS.lastMod=0;await fsWrite();fsSet('ok');toast('Listo: tus datos se guardan en '+h.name);
+  }catch(e){if(!e||e.name!=='AbortError')toast('No se pudo crear el archivo');}
+}
+async function fsConnectExisting(){
+  let h,f,o=null;
+  try{[h]=await window.showOpenFilePicker({types:FILE_TYPES,multiple:false});}catch(e){if(!e||e.name!=='AbortError')toast('No se pudo abrir el archivo');return;}
+  try{f=await h.getFile();const txt=await f.text();
+    if(txt.trim()){o=JSON.parse(txt);if(!o||typeof o!=='object'||!(Array.isArray(o.workspaces)||Array.isArray(o.content)))throw new Error('formato');}
+  }catch(e){toast('Ese archivo no es un archivo de datos de la app');return;}
+  try{if((await h.requestPermission({mode:'readwrite'}))!=='granted'){toast('Necesito permiso para guardar en ese archivo');return;}}catch(e){toast('No se pudo obtener permiso para el archivo');return;}
+  ui.pendingFile={h,o:o?normalize(o):null,mod:f.lastModified};
+  if(!o){fsFinishConnect(true);return;}
+  openModal(`<h2>Conectar archivo</h2><p style="margin-top:0">El archivo <b>${esc(h.name)}</b> ya tiene información (${(o.workspaces||[1]).length} ${(o.workspaces||[1]).length===1?'empresa':'empresas'}). ¿Qué hago con lo que hay en este navegador?</p>
+    <div class="choice"><button class="btn primary" data-act="fileUseFile">Usar solo los datos del archivo (recomendado)</button><button class="btn" data-act="fileMerge">Combinar con los datos de este navegador</button></div>
+    <p class="small muted">Con la primera opción ves exactamente lo mismo que en el otro navegador.</p>
+    <div class="modal-foot"><span></span><button class="btn ghost" data-act="closeModal">Cancelar</button></div>`);
+}
+async function fsFinishConnect(merge){
+  const pf=ui.pendingFile;if(!pf)return;ui.pendingFile=null;closeModal();
+  FS.h=pf.h;FS.name=pf.h.name;try{await kv('put','dataFile',pf.h);}catch(e){}
+  FS.state='ok';FS.lastMod=pf.mod;
+  if(pf.o){const keep=S.activeId;const next=merge?mergeData(S,pf.o):Object.assign(pf.o,{activeId:pf.o.workspaces.some(w=>w.id===keep)?keep:pf.o.activeId});
+    if(!merge)next.deleted=[...new Set([...(next.deleted||[]),...S.workspaces.map(w=>w.id).filter(id=>!next.workspaces.some(w=>w.id===id))])];
+    resetWsUi();applyIncoming(next);if(merge)await fsWrite();}
+  else await fsWrite();
+  fsSet('ok');toast('Archivo conectado: '+FS.name);
+}
+async function fsReconnect(){
+  if(!FS.h){go('configuracion');return;}
+  try{const p=await FS.h.requestPermission({mode:'readwrite'});if(p==='granted'){FS.state='ok';await fsPull(true);fsSet('ok');toast('Datos reconectados ✓');}else toast('Sin permiso no puedo usar el archivo');}
+  catch(e){toast('No se pudo reconectar. Conecta el archivo otra vez en Configuración.');}
+}
+async function fsDisconnect(){try{await kv('del','dataFile');}catch(e){}FS.h=null;FS.name='';fsSet('off');toast('Archivo desconectado');}
+async function fsWrite(){
+  if(!FS.h||FS.state!=='ok')return;
+  if(FS.writing){FS.again=true;return;}
+  FS.writing=true;
+  try{
+    const f=await FS.h.getFile();
+    if(FS.lastMod&&f.lastModified>FS.lastMod){const txt=await f.text();if(txt.trim()){try{const remote=normalize(JSON.parse(txt));const m=mergeData(S,remote);if(stripLocal(m)!==stripLocal(S))applyIncoming(m);}catch(e){}}}
+    const w=await FS.h.createWritable();await w.write(JSON.stringify(S));await w.close();
+    const f2=await FS.h.getFile();FS.lastMod=f2.lastModified;FS.lastSync=Date.now();
+  }catch(e){if(e&&(e.name==='NotAllowedError'||e.name==='SecurityError'))fsSet('perm');}
+  FS.writing=false;
+  if(FS.again){FS.again=false;fsWrite();}
+}
+async function fsPull(initial){
+  if(!FS.h||FS.state!=='ok'||FS.writing||fileWriteT)return;
+  try{const f=await FS.h.getFile();
+    if(!initial&&f.lastModified<=FS.lastMod)return;
+    const txt=await f.text();FS.lastMod=f.lastModified;FS.lastSync=Date.now();
+    if(!txt.trim()){await fsWrite();return;}
+    const remote=normalize(JSON.parse(txt)),m=mergeData(S,remote);
+    if(stripLocal(m)!==stripLocal(S))applyIncoming(m);
+    if(stripLocal(m)!==stripLocal(Object.assign({},remote,{deleted:m.deleted})))scheduleFileWrite();
+  }catch(e){if(e&&(e.name==='NotAllowedError'||e.name==='SecurityError'))fsSet('perm');}
+}
+let fileWriteT=null;
+function scheduleFileWrite(){if(!FS.h||FS.state!=='ok')return;clearTimeout(fileWriteT);fileWriteT=setTimeout(()=>{fileWriteT=null;fsWrite();},450);}
+function flushFileWrite(){if(fileWriteT){clearTimeout(fileWriteT);fileWriteT=null;fsWrite();}}
+const ago=t=>{const s=Math.round((Date.now()-t)/1000);return s<60?'hace unos segundos':s<3600?`hace ${Math.round(s/60)} min`:`hace ${Math.round(s/3600)} h`;};
+function syncPill(){
+  if(!FS_OK)return '';
+  if(FS.state==='ok')return `<button class="sync-pill ok" data-act="nav" data-tab="configuracion" title="Datos guardados en ${esc(FS.name)}"><i></i><span>Datos en ${esc(FS.name)}</span></button>`;
+  if(FS.state==='perm')return `<button class="sync-pill warn" data-act="fsReconnect"><i></i><span>Toca para reconectar tus datos</span></button>`;
+  return `<button class="sync-pill" data-act="nav" data-tab="configuracion"><i></i><span>Datos solo en este navegador</span></button>`;
+}
+const permBanner=()=>`<div class="warn-box no-print">${ic('link',20)}<p><b>Reconecta tus datos.</b> El navegador pide permiso otra vez para usar el archivo ${esc(FS.name)}. Mientras tanto, los cambios solo quedan en este navegador.</p><button class="btn primary sm" data-act="fsReconnect">Reconectar</button></div>`;
+const syncTip=()=>FS_OK&&FS.state==='off'&&!S.user.syncTipOff?`<div class="card tip-card no-print" style="margin-bottom:16px">${ic('link',22)}<div style="flex:1;min-width:220px"><b>¿Usas Chrome y Edge en este computador?</b><div class="small muted">Conecta un archivo de datos y verás la misma información en los dos navegadores.</div></div><div class="head-actions"><button class="btn primary sm" data-act="nav" data-tab="configuracion">Configurar</button><button class="btn sm ghost" data-act="dismissSyncTip">Ahora no</button></div></div>`:'';
+
+/* =========================================================
    Marca (consultora) y barra lateral
    ========================================================= */
 const brandInner=()=>{const u=S.user,showName=!u.logo||u.showName!==false;
@@ -861,12 +1280,12 @@ function renderSidebar(){
     <button class="ws-switch" data-act="openWsPicker">${avatar(D,34)}<span class="wt"><small>Empresa activa</small><b>${esc(D.name)}</b></span>${ic('chevdown',16)}</button>
     <nav class="nav">${NAV.map(link).join('')}</nav>
     <div class="side-bottom">
-      ${isStandalone()?'':`<div class="install-card"><b>Instala tu app</b><p>Úsala en tu PC o celular como una app, incluso sin internet.</p><button data-act="installApp">${ic('download',15,2)} Instalar</button></div>`}
+      ${syncPill()}${isStandalone()?'':`<div class="install-card"><b>Instala tu app</b><p>Úsala en tu PC o celular como una app, incluso sin internet.</p><button data-act="installApp">${ic('download',15,2)} Instalar</button></div>`}
       <nav class="nav">${link(['configuracion','Configuración','settings'])}</nav>
     </div>`;
-  const bn=[['inicio','Inicio','home'],['planificador','Plan','calendar'],['ideas','Ideas','bulb'],['guiones','Guiones','file']];
+  const bn=[['inicio','Inicio','home'],['planificador','Plan','calendar'],['ideas','Ideas','bulb'],['guiones','Crear','file']];
   $('#bottomnav').innerHTML=bn.map(([id,l,i])=>`<a href="#${id}" data-act="nav" data-tab="${id}" class="${ui.tab===id?'active':''}">${ic(i,22)}${l}</a>`).join('')+
-    `<a href="#" data-act="openMenu" class="${['empresas','automatizacion','estadisticas','comparativo','configuracion'].includes(ui.tab)?'active':''}">${ic('grid',22)}Más</a>`;
+    `<a href="#" data-act="openMenu" class="${['empresas','ficha','automatizacion','estadisticas','comparativo','configuracion'].includes(ui.tab)?'active':''}">${ic('grid',22)}Más</a>`;
   $('#brand-top').innerHTML=brandInner();
   $('#ws-top').innerHTML=`${avatar(D,22)}<span>${esc(D.name)}</span>${ic('chevdown',15)}`;
   applyBrand();
@@ -884,7 +1303,7 @@ function vInicio(){
   const wsRows=S.workspaces.map(w=>{const s=wsSummary(w);return `<button class="li clickable" data-act="switchWs" data-id="${w.id}">${avatar(w,38)}<div class="grow"><b>${esc(w.name)}</b><span>${esc((w.niche||{}).sector||'Sin nicho definido')}</span></div>
       <div style="text-align:right">${s?`<b style="font-size:13.5px">${fmtNum(s.followers)}</b><div class="small ${s.growth>=0?'up':'down'}" style="font-weight:700">${pct(s.growth)}</div>`:'<span class="small muted">Sin datos</span>'}</div></button>`;}).join('');
   return `<div class="hero"><h1>¡Hola, ${esc(S.user.name)}!</h1><p>Estás trabajando en <b>${esc(D.name)}</b>. Cambia de empresa cuando quieras desde el menú.</p>
-      <div class="head-actions"><button class="btn" data-act="newContent">${ic('plus',16,2)} Nuevo contenido</button><button class="btn outline" data-act="nav" data-tab="ideas">${ic('sparkles',16)} Generar ideas</button><button class="btn outline" data-act="openWsPicker">${ic('briefcase',16)} Cambiar empresa</button></div></div>
+      <div class="head-actions"><button class="btn" data-act="newContent">${ic('plus',16,2)} Nuevo contenido</button><button class="btn outline" data-act="nav" data-tab="ideas">${ic('sparkles',16)} Generar ideas</button><button class="btn outline" data-act="openWsPicker">${ic('briefcase',16)} Cambiar empresa</button>${deferredPrompt&&!isStandalone()?`<button class="btn outline" data-act="installApp">${ic('download',16)} Instalar en este equipo</button>`:''}</div></div>${syncTip()}
     <div class="grid g4">
       ${kpi('tint-rose','calendar','Esta semana',week.length,sub('publicaciones planeadas'))}
       ${kpi('tint-green','check','Publicados',week.filter(c=>c.status==='publicado').length,sub('esta semana'))}
@@ -906,16 +1325,69 @@ function vInicio(){
 function vEmpresas(){
   const right=`<button class="btn primary" data-act="newWs">${ic('plus',16,2)} Nueva empresa</button>`;
   const cards=S.workspaces.map(w=>{const s=wsSummary(w),n=w.niche||{},on=w.id===D.id;
-    return `<div class="card ws-card ${on?'on':''}"><div class="ws-head">${avatar(w,48)}<div style="min-width:0"><b>${esc(w.name)}</b><span>${esc(n.sector||'Completa el perfil del nicho')}</span></div>${on?'<span class="badge b-TikTok" style="margin-left:auto">Activa</span>':''}</div>
+    return `<div class="card ws-card ${on?'on':''}"><div class="ws-head">${avatar(w,48)}<div style="min-width:0"><b>${esc(w.name)}</b><span>${esc(n.sector||'Completa la ficha del negocio')}</span></div>${on?'<span class="badge b-TikTok" style="margin-left:auto">Activa</span>':''}</div>
       ${n.audience?`<div class="small muted">${ic('target',14)} ${esc(n.audience)}</div>`:''}
       <div class="mini"><div><small>Seguidores</small><b>${s?fmtNum(s.followers):'—'}</b>${s?`<em class="${s.growth>=0?'up':'down'}">${pct(s.growth)}</em>`:''}</div>
         <div><small>Ingresos</small><b>${s?money(s.income):'—'}</b>${s?`<em class="${(s.incomeGrowth||0)>=0?'up':'down'}">${pct(s.incomeGrowth)}</em>`:''}</div>
         <div><small>Contenido</small><b>${w.content.length}</b><em class="muted">${w.scripts.length} ${w.scripts.length===1?'guion':'guiones'}</em></div></div>
-      <div class="ws-actions">${on?`<button class="btn" data-act="nav" data-tab="inicio">Ir al inicio</button>`:`<button class="btn primary" data-act="switchWs" data-id="${w.id}">Abrir</button>`}<button class="btn" data-act="editWs" data-id="${w.id}">${ic('pen',15)} Perfil</button></div></div>`;}).join('');
+      <div><div class="small muted" style="margin-bottom:6px">Ficha del negocio: <b>${fichaPct(w)}%</b></div><div class="progress"><div style="width:${fichaPct(w)}%"></div></div></div>
+      <div class="ws-actions">${on?`<button class="btn" data-act="nav" data-tab="inicio">Ir al inicio</button>`:`<button class="btn primary" data-act="switchWs" data-id="${w.id}">Abrir</button>`}<button class="btn" data-act="openFicha" data-id="${w.id}">${ic('store',15)} Ficha</button></div></div>`;}).join('');
   return pageHead('Empresas','Cada empresa que asesoras tiene su propio espacio: planificador, ideas, guiones, mensajes y estadísticas.',right,false)+
     `<div class="ws-cards">${cards}</div>
-     <div class="hint mt">${ic('info',15)} El <b>perfil del nicho</b> (a qué se dedica, a quién le vende, qué ofrece, tono y objetivo) es lo que usa la app para crear ideas y guiones a la medida de cada empresa. Mientras más completo, mejores resultados.</div>`;
+     <div class="hint mt">${ic('info',15)} La <b>ficha del negocio</b> (a qué se dedica, productos y precios, público, beneficios, contacto, tono y objetivo) es lo que usa la app para crear ideas, guiones y copys a la medida de cada empresa. Mientras más completo, mejores resultados.</div>`;
 }
+/* =========================================================
+   VISTA: Ficha del negocio
+   ========================================================= */
+const prodPreview=s=>{const l=parseProducts(s);return l.length?l.map(p=>`<span>${esc(p.name)}${p.price?` · ${esc(p.price)}`:''}</span>`).join(''):'<em class="small muted">Aún no hay productos en la lista.</em>';};
+let fichaT=null;
+function flushFicha(){if(fichaT){clearTimeout(fichaT);fichaT=null;save();}}
+function fichaSoon(){clearTimeout(fichaT);fichaT=setTimeout(()=>{fichaT=null;save();},500);}
+function fichaInput(el){
+  const k=el.dataset.nf;D.niche=D.niche||{};D.niche[k]=el.type==='checkbox'?el.checked:el.value;
+  if(k==='productList'){const pv=$('#prod-prev');if(pv)pv.innerHTML=prodPreview(D.niche.productList);}
+  const p=fichaPct(D),pb=$('#ficha-bar'),pt=$('#ficha-pct');if(pb)pb.style.width=p+'%';if(pt)pt.textContent=p+'%';
+  fichaSoon();
+}
+function vFicha(){
+  const n=D.niche||{},pct=fichaPct(D);
+  const f=(k,label,ph,o={})=>{const v=esc(n[k]||'');return `<div class="field"><label for="nf-${k}">${label}</label>${o.area?`<textarea class="inp" id="nf-${k}" data-nf="${k}" placeholder="${esc(ph)}" style="min-height:${o.h||88}px">${v}</textarea>`:`<input class="inp" id="nf-${k}" data-nf="${k}" value="${v}" placeholder="${esc(ph)}">`}${o.hint?`<small class="fhint">${o.hint}</small>`:''}</div>`;};
+  const sel=(k,label,opts)=>`<div class="field"><label for="nf-${k}">${label}</label><select class="inp" id="nf-${k}" data-nf="${k}">${opts.map(o=>`<option ${o===(n[k]||opts[0])?'selected':''}>${o}</option>`).join('')}</select></div>`;
+  const right=`<button class="btn" data-act="nav" data-tab="ideas">${ic('bulb',16)} Ideas</button><button class="btn primary" data-act="nav" data-tab="guiones">${ic('sparkles',16)} Crear contenido</button>`;
+  return pageHead('Ficha del negocio','Toda la información de la empresa. Mientras más completa, mejores ideas, guiones y copys. Se guarda sola.',right)+
+  `<div class="card ficha-top">${avatar(D,46)}<div class="grow"><b style="font-size:15px">${esc(D.name)}</b><div class="small muted" style="margin:2px 0 8px">Ficha completa al <b id="ficha-pct">${pct}%</b></div><div class="progress"><div id="ficha-bar" style="width:${pct}%"></div></div></div></div>
+  <div class="grid g2 mt">
+   <div class="card"><div class="card-h"><h3>1. Identidad</h3></div>
+    <div class="field"><label for="nf-name">Nombre de la empresa</label><input class="inp" id="nf-name" data-wsf="name" value="${esc(D.name)}" maxlength="50"></div>
+    <div class="ws-logo-row"><div class="logo-prev ${D.logo?'has':''}">${D.logo?`<img src="${D.logo}" alt="">`:ic('image',22,1.5)}</div><button class="btn sm" data-act="fichaLogo">${ic('upload',14)} ${D.logo?'Cambiar logo':'Subir logo'}</button>${D.logo?`<button class="btn sm ghost danger" data-act="fichaLogoDel">Quitar</button>`:''}</div>
+    <div class="field"><label>Color de la empresa</label><div class="swatches">${WS_COLORS.map(c=>`<button type="button" class="sw ${c===D.color?'on':''}" style="background:${c}" data-act="fichaColor" data-c="${c}" aria-label="Color ${c}"></button>`).join('')}</div></div>
+    ${f('sector','¿A qué se dedica? (nicho)','Ej. pastelería artesanal')}
+    ${f('description','Descripción o historia del negocio','Ej. Somos una pastelería familiar que hace tortas a mano desde 2018.',{area:true})}
+    ${f('city','Ciudad o zona donde atiende','Ej. Medellín')}</div>
+   <div class="card"><div class="card-h"><h3>2. Productos o servicios</h3></div>
+    ${f('products','Resumen de lo que vende (una frase)','Ej. tortas personalizadas y postres')}
+    ${f('productList','Lista de productos o servicios','Torta personalizada | 120000 | decorada a mano\nCupcakes x12 | 45000 | sabores surtidos',{area:true,h:140,hint:'Uno por línea: Nombre | Precio | Descripción corta. El precio y la descripción son opcionales.'})}
+    <div class="prod-prev" id="prod-prev">${prodPreview(n.productList)}</div>
+    ${f('promo','Promoción vigente','Ej. 10 % de descuento en tu primera compra')}</div>
+   <div class="card"><div class="card-h"><h3>3. Clientes</h3></div>
+    ${f('audience','¿A quién le vende? (público)','Ej. familias que celebran en casa')}
+    ${f('pains','Problemas o deseos del cliente','Uno por línea. Ej.\nno tener tiempo para preparar la torta\nmiedo a que el pedido no llegue a tiempo',{area:true,hint:'Se usan en frases como “Sabemos lo que es…”.'})}
+    ${f('benefits','Beneficios principales','Uno por línea. Ej.\ningredientes frescos\ndecoración hecha a mano',{area:true})}
+    ${f('diff','¿Qué la hace diferente?','Ej. entrega el mismo día')}
+    ${f('faqs','Preguntas frecuentes de los clientes','Una por línea. Ej.\n¿Hacen domicilios?\n¿Con cuánto tiempo debo pedir?',{area:true})}</div>
+   <div class="card"><div class="card-h"><h3>4. Ventas y contacto</h3></div>
+    <div class="row2">${f('whatsapp','WhatsApp','Ej. 300 123 4567')}${f('instagram','Instagram','Ej. @minegocio')}</div>
+    <div class="row2">${f('web','Página web o enlace','Ej. linktr.ee/minegocio')}${f('schedule','Horario de atención','Ej. lunes a sábado, 8 a. m. a 6 p. m.')}</div>
+    ${f('delivery','Entregas o envíos','Ej. domicilios en Medellín el mismo día')}
+    ${f('payment','Medios de pago','Ej. Nequi, transferencia o efectivo')}
+    ${f('ctaPref','Llamado a la acción preferido (opcional)','Ej. Haz tu pedido por WhatsApp: el enlace está en la biografía',{hint:'Si lo llenas, se usa al final de todos los guiones y copys.'})}</div>
+   <div class="card full-span"><div class="card-h"><h3>5. Estilo de comunicación</h3></div>
+    <div class="row3">${sel('tone','Tono',TONES)}${sel('goal','Objetivo principal',BIZ_GOALS)}<label class="check" style="margin-bottom:14px"><input type="checkbox" data-nf="emoji" ${n.emoji!==false?'checked':''}> Usar emojis en los copys</label></div>
+    ${f('keywords','Palabras clave o hashtags propios (separados por coma)','Ej. tortas medellín, postres caseros')}</div>
+  </div>
+  <div class="head-actions mt" style="justify-content:space-between"><button class="btn ghost danger" data-act="deleteWs" data-id="${D.id}">${ic('trash',16)} Eliminar esta empresa</button><button class="btn primary" data-act="saveFicha">${ic('check',16,2)} Guardar ficha</button></div>`;
+}
+
 function wsModal(w){
   const isNew=!w;w=w||blankWs('',WS_COLORS[S.workspaces.length%WS_COLORS.length]);
   const n=w.niche||{};ui.wsDraft={id:isNew?null:w.id,color:w.color,logo:w.logo||null};
@@ -924,7 +1396,7 @@ function wsModal(w){
     <div class="ws-logo-row"><div class="logo-prev ${w.logo?'has':''}" id="w-logo-prev">${w.logo?`<img src="${w.logo}" alt="">`:ic('image',22,1.5)}</div>
       <button class="btn sm" data-act="pickWsLogo">${ic('upload',14)} Logo (opcional)</button><button class="btn sm ghost danger" data-act="removeWsLogo" id="w-logo-del" style="${w.logo?'':'display:none'}">Quitar</button></div>
     <div class="field"><label>Color</label><div class="swatches">${WS_COLORS.map(c=>`<button type="button" class="sw ${c===w.color?'on':''}" style="background:${c}" data-act="pickColor" data-c="${c}" aria-label="Color ${c}"></button>`).join('')}</div></div>
-    <div class="sec-title">Perfil del nicho · así la app crea ideas a su medida</div>
+    <div class="sec-title">Datos básicos del negocio · después completas la ficha</div>
     <div class="field"><label for="w-sector">¿A qué se dedica? (nicho)</label><input class="inp" id="w-sector" value="${esc(n.sector||'')}" placeholder="Ej. pastelería artesanal, asesoría contable, ropa deportiva"></div>
     <div class="field"><label for="w-aud">¿A quién le vende? (público)</label><input class="inp" id="w-aud" value="${esc(n.audience||'')}" placeholder="Ej. mamás que celebran en casa, dueños de pequeños negocios"></div>
     <div class="field"><label for="w-prod">Productos o servicios principales</label><input class="inp" id="w-prod" value="${esc(n.products||'')}" placeholder="Ej. tortas personalizadas y postres"></div>
@@ -943,7 +1415,7 @@ function wsPicker(){
 function switchWs(id){
   if(ui.tab==='guiones')persistEditor();
   const w=S.workspaces.find(x=>x.id===id);if(!w)return;
-  S.activeId=id;bindD();resetWsUi();save();closeModal();closeMenu();
+  flushFicha();S.activeId=id;bindD();resetWsUi();save();applyTheme();closeModal();closeMenu();
   if(ui.tab==='empresas'||ui.tab==='comparativo'||ui.tab==='configuracion')go('inicio');else render();
   toast(`Ahora trabajas en ${w.name}`);
 }
@@ -989,13 +1461,13 @@ function contentModal(c){
    ========================================================= */
 function vIdeas(){
   const N=nctx(),cat=CATS.find(c=>c.id===ui.ideaCat);
-  const right=`<button class="btn" data-act="editWs" data-id="${D.id}">${ic('pen',16)} Perfil del nicho</button><button class="btn primary" data-act="focusTopic">${ic('plus',16,2)} Nueva idea</button>`;
-  const profile=N.hasProfile?`<div class="card niche"><div class="niche-h">${ic('sparkles',16)}<b>Las ideas se crean para el nicho de ${esc(N.brand)}</b></div>
+  const right=`<button class="btn" data-act="openFicha" data-id="${D.id}">${ic('store',16)} Ficha del negocio</button><button class="btn primary" data-act="focusTopic">${ic('plus',16,2)} Nueva idea</button>`;
+  const profile=N.hasProfile?`<div class="card niche"><div class="niche-h">${ic('sparkles',16)}<b>Las ideas se crean para el nicho de ${esc(N.brand)}</b><button class="btn sm ghost" data-act="openFicha" data-id="${D.id}">Editar ficha</button></div>
       <div class="niche-tags"><span><small>Nicho</small>${esc(N.sectorRaw||'—')}</span><span><small>Público</small>${esc(N.audRaw||'—')}</span><span><small>Productos</small>${esc(N.prodRaw||'—')}</span>${N.diff?`<span><small>Diferencial</small>${esc(N.diff)}</span>`:''}<span><small>Tono</small>${esc(N.tone)}</span><span><small>Objetivo</small>${esc(N.goal)}</span></div></div>`
-    :`<div class="warn-box">${ic('info',20)}<p><b>Completa el perfil del nicho de ${esc(N.brand)}.</b> Sin él, las ideas salen genéricas. Con el nicho, el público y los productos, la app escribe ideas y guiones a la medida de esta empresa.</p><button class="btn primary sm" data-act="editWs" data-id="${D.id}">Completar perfil</button></div>`;
+    :`<div class="warn-box">${ic('info',20)}<p><b>Completa la ficha del negocio de ${esc(N.brand)}.</b> Sin él, las ideas salen genéricas. Con el nicho, el público y los productos, la app escribe ideas y guiones a la medida de esta empresa.</p><button class="btn primary sm" data-act="openFicha" data-id="${D.id}">Completar ficha</button></div>`;
   const how=`<details class="how"><summary>${ic('info',17)} ¿Cómo funcionan las ideas con IA?</summary><div class="how-b">
-    <p>Cada empresa tiene su propio <b>perfil del nicho</b>. La app combina ese perfil con lo que eliges aquí para escribir ideas a su medida:</p>
-    <ol><li><b>Perfil del nicho</b>: a qué se dedica, a quién le vende, qué ofrece, qué la hace diferente, su tono y su objetivo.</li>
+    <p>Cada empresa tiene su propia <b>ficha del negocio</b>. La app combina esa ficha con lo que eliges aquí para escribir ideas a su medida:</p>
+    <ol><li><b>Ficha del negocio</b>: a qué se dedica, sus productos y precios, su público, qué la hace diferente, su tono y su objetivo.</li>
     <li><b>Red social</b>: adapta el formato (Reel, TikTok, carrusel, video de YouTube) y los hashtags.</li>
     <li><b>Objetivo del contenido</b>: Vender, Educar, Entretener, Conectar (detrás de cámara) o Testimonios. Con “Todos” recibes una mezcla equilibrada.</li>
     <li><b>Tema</b> (opcional): si lo dejas vacío, usa los productos de la empresa.</li></ol>
@@ -1028,7 +1500,7 @@ function vIdeas(){
 }
 function doGenerate(){
   const t=(ui.topic||'').trim(),N=nctx();
-  if(!t&&!N.hasProfile){toast('Escribe un tema o completa el perfil del nicho');const el=$('#topic');if(el)el.focus();return;}
+  if(!t&&!N.hasProfile){toast('Escribe un tema o completa la ficha del negocio');const el=$('#topic');if(el)el.focus();return;}
   if(ui.ideaCat==='guardadas')ui.ideaCat='reels';
   ui.results=generate(ui.ideaCat,t,ui.ideaPlat,ui.pillar);ui.lastTopic=t||N.prod;render();
   const r=$('#results');if(r)r.scrollIntoView({behavior:'smooth',block:'start'});
@@ -1044,33 +1516,39 @@ const lastLine=s=>String(s).split('\n').filter(Boolean).slice(-1)[0]||'';
    VISTA: Guiones
    ========================================================= */
 function vGuiones(){
-  const N=nctx(),list=[...D.scripts].sort((a,b)=>(b.updated||0)-(a.updated||0));
-  if(!D.scripts.find(s=>s.id===ui.scriptId))ui.scriptId=list[0]?list[0].id:null;
+  const N=nctx(),all=[...D.scripts].sort((a,b)=>(b.updated||0)-(a.updated||0));
+  const list=ui.sFilter==='todos'?all:all.filter(x=>(x.kind||'reel')===ui.sFilter);
+  if(!D.scripts.find(s=>s.id===ui.scriptId))ui.scriptId=((list[0]||all[0])||{}).id||null;
   const s=D.scripts.find(x=>x.id===ui.scriptId);
-  const right=`<button class="btn" data-act="newScript">${ic('plus',16,2)} Guion en blanco</button>`;
-  const auto=`<div class="card auto-card"><div class="card-h"><h3>${ic('sparkles',17)} Guion automático para ${esc(N.brand)}</h3></div>
-    <div class="auto-grid">
-      <div class="field f-topic"><label for="g-topic">Tema del video</label><input class="inp" id="g-topic" value="${esc(ui.gTopic)}" placeholder="Ej. ${esc(N.prod)}" enterkeyhint="go"></div>
-      <div class="field"><label for="g-goal">Objetivo</label><select class="inp" id="g-goal">${Object.entries(GOALS).map(([k,l])=>`<option value="${k}" ${k===ui.gGoal?'selected':''}>${l}</option>`).join('')}</select></div>
-      <div class="field"><label for="g-secs">Duración</label><select class="inp" id="g-secs">${[15,30,60,90].map(n=>`<option value="${n}" ${n==ui.gSecs?'selected':''}>${n} segundos</option>`).join('')}</select></div>
-      <div class="field"><label for="g-plat">Red</label><select class="inp" id="g-plat">${SOCIAL.map(p=>`<option ${p===ui.gPlat?'selected':''}>${p}</option>`).join('')}</select></div>
-      <button class="btn primary" data-act="autoScript">${ic('sparkles',16)} Crear guion</button>
+  const cs=CASES.find(c=>c.id===ui.cCase)||CASES[0],K=KINDS[ui.cKind]?ui.cKind:'reel',pct=fichaPct(D);
+  const right=`<button class="btn" data-act="newScript">${ic('plus',16,2)} En blanco</button>`;
+  const creator=`<div class="card auto-card creator"><div class="card-h"><h3>${ic('sparkles',17)} Crear automático para ${esc(N.brand)}</h3></div>
+    <div class="chips wrap">${Object.entries(KINDS).map(([k,v])=>`<button class="chip ${K===k?'active':''}" data-act="cKind" data-k="${k}">${ic(v.icon,15)} ${v.label}</button>`).join('')}</div>
+    <div class="c-grid">
+      <div class="field"><label for="c-case">Caso</label><select class="inp" id="c-case">${CASES.map(c=>`<option value="${c.id}" ${c.id===cs.id?'selected':''}>${c.label}</option>`).join('')}</select></div>
+      <div class="field"><label for="c-prod">Producto o servicio</label><select class="inp" id="c-prod"><option value="">Toda la marca</option>${N.list.map((p,i)=>`<option value="${i}" ${String(i)===String(ui.cProd)?'selected':''}>${esc(p.name)}${p.price?` · ${esc(p.price)}`:''}</option>`).join('')}</select></div>
+      ${['reel','carrusel','copy','anuncio'].includes(K)?`<div class="field"><label for="c-plat">Red</label><select class="inp" id="c-plat">${SOCIAL.map(p=>`<option ${p===ui.cPlat?'selected':''}>${p}</option>`).join('')}</select></div>`:''}
+      ${K==='reel'?`<div class="field"><label for="c-secs">Duración</label><select class="inp" id="c-secs">${[15,30,60,90].map(n=>`<option value="${n}" ${n==ui.cSecs?'selected':''}>${n} segundos</option>`).join('')}</select></div>`:''}
     </div>
-    <p class="small muted" style="margin:10px 0 0">Escribes el tema y la app arma el guion completo: gancho, escenas con tiempos, cierre y texto para publicar, usando el nicho, el público y el tono de ${esc(N.brand)}.${N.hasProfile?'':' <b>Completa el perfil del nicho para mejores resultados.</b>'}</p></div>`;
-  const items=list.map(x=>`<button class="s-item ${x.id===ui.scriptId?'active':''}" data-act="selectScript" data-id="${x.id}"><b>${esc(x.title||'Sin título')}</b><span>${esc(x.platform)}${x.gen?` · ${GOALS[x.gen.goal]||''} · ${x.gen.secs} s`:''} · ${new Date(x.updated||Date.now()).toLocaleDateString('es-CO',{day:'numeric',month:'short'})}</span></button>`).join('');
-  const editor=s?`<div id="script-editor">
+    <div class="c-row"><div class="field"><label for="c-detail">Detalle${cs.need?'':' (opcional)'}</label><input class="inp" id="c-detail" value="${esc(ui.cDetail)}" placeholder="${esc(cs.ph)}" enterkeyhint="go"></div>
+      <button class="btn primary" data-act="makePiece">${ic('sparkles',16)} Crear</button></div>
+    <p class="small muted" style="margin:10px 0 0">Usa la ficha de ${esc(N.brand)} (${pct}% completa): productos y precios, beneficios, público, contacto y tono.${pct<60?` <a href="#ficha" data-act="nav" data-tab="ficha"><b>Completa la ficha</b></a> para mejores resultados.`:''}</p></div>`;
+  const kinds=new Set(all.map(x=>x.kind||'reel'));
+  const filt=all.length&&kinds.size>1?`<div class="chips wrap" style="margin-bottom:10px"><button class="chip ${ui.sFilter==='todos'?'active':''}" data-act="sFilter" data-f="todos">Todos (${all.length})</button>${Object.keys(KINDS).filter(k=>kinds.has(k)).map(k=>`<button class="chip ${ui.sFilter===k?'active':''}" data-act="sFilter" data-f="${k}">${KINDS[k].short} (${all.filter(x=>(x.kind||'reel')===k).length})</button>`).join('')}</div>`:'';
+  const items=list.map(x=>{const k=x.kind||'reel';return `<button class="s-item ${x.id===ui.scriptId?'active':''}" data-act="selectScript" data-id="${x.id}"><b>${esc(x.title||'Sin título')}</b><span><span class="kbadge">${KINDS[k].short}</span>${esc(k==='whatsapp'?'WhatsApp':x.platform)} · ${new Date(x.updated||Date.now()).toLocaleDateString('es-CO',{day:'numeric',month:'short'})}</span></button>`;}).join('');
+  let editor=empty('pen','Todavía no hay contenido para esta empresa. Elige qué crear arriba y toca Crear.');
+  if(s){const k=s.kind||'reel',L=KINDS[k].labels,hs=[64,170,60,110];
+    editor=`<div id="script-editor">${s.note?`<div class="note-box">${ic('info',14)} ${esc(s.note)}</div>`:''}
       <div class="row2"><div class="field"><label for="sc-title">Título</label><input class="inp" id="sc-title" value="${esc(s.title)}"></div>
-      <div class="field"><label for="sc-plat">Plataforma</label><select class="inp" id="sc-plat">${SOCIAL.map(p=>`<option ${p===s.platform?'selected':''}>${p}</option>`).join('')}</select></div></div>
-      <div class="field"><label for="sc-hook">Gancho (primeros 3 segundos)</label><textarea class="inp" id="sc-hook" style="min-height:64px">${esc(s.hook)}</textarea></div>
-      <div class="field"><label for="sc-body">Desarrollo (escenas)</label><textarea class="inp" id="sc-body" style="min-height:160px">${esc(s.body)}</textarea></div>
-      <div class="field"><label for="sc-cta">Cierre / llamado a la acción</label><textarea class="inp" id="sc-cta" style="min-height:56px">${esc(s.cta)}</textarea></div>
-      <div class="field"><label for="sc-caption">Texto para publicar (copy y hashtags)</label><textarea class="inp" id="sc-caption" style="min-height:110px">${esc(s.caption||'')}</textarea></div>
+      <div class="field"><label for="sc-plat">Red</label><select class="inp" id="sc-plat">${SOCIAL.map(p=>`<option ${p===s.platform?'selected':''}>${p}</option>`).join('')}</select></div></div>
+      ${['hook','body','cta','caption'].map((f,i)=>`<div class="field"><label for="sc-${f}">${L[i]}</label><textarea class="inp" id="sc-${f}" style="min-height:${hs[i]}px">${esc(s[f]||'')}</textarea></div>`).join('')}
       <div class="modal-foot"><span class="dur" id="dur">${ic('clock',14)} —</span>
-        <div class="head-actions"><button class="btn ghost danger" data-act="deleteScript" title="Eliminar guion" aria-label="Eliminar guion">${ic('trash',16)}</button>${s.gen?`<button class="btn" data-act="regenScript">${ic('refresh',16)} Otra versión</button>`:''}<button class="btn" data-act="copyScript">${ic('copy',16)} Copiar</button><button class="btn" data-act="scheduleScript">${ic('calendar',16)} Programar</button><button class="btn primary" data-act="saveScript">Guardar</button></div></div>
-    </div>`:empty('pen','Todavía no hay guiones para esta empresa. Escribe un tema arriba y toca Crear guion.');
-  return pageHead('Guiones','Guiones listos para grabar. Se guardan solos mientras escribes.',right)+auto+
-    `<div class="scripts"><div class="card"><div class="card-h"><h3>Guiones de ${esc(N.brand)}</h3><span class="muted small">${list.length}</span></div>${items||'<p class="muted small">Sin guiones aún.</p>'}</div><div class="card">${editor}</div></div>`;
+        <div class="head-actions"><button class="btn ghost danger" data-act="deleteScript" title="Eliminar" aria-label="Eliminar">${ic('trash',16)}</button>${s.gen?`<button class="btn" data-act="regenScript">${ic('refresh',16)} Otra versión</button>`:''}<button class="btn" data-act="copyScript">${ic('copy',16)} Copiar${k==='copy'?' copy':k==='whatsapp'?' mensaje':''}</button>${['reel','carrusel'].includes(k)?`<button class="btn" data-act="copyCaption">${ic('copy',16)} Copiar copy</button>`:''}${k==='whatsapp'?`<button class="btn" data-act="openWa">${ic('send',16)} Abrir en WhatsApp</button>`:`<button class="btn" data-act="scheduleScript">${ic('calendar',16)} Programar</button>`}<button class="btn primary" data-act="saveScript">Guardar</button></div></div>
+    </div>`;}
+  return pageHead('Guiones y copys','Crea guiones, carruseles, historias, copys, mensajes y anuncios para cada caso. Todo se guarda solo.',right)+creator+
+    `<div class="scripts"><div class="card"><div class="card-h"><h3>Contenido de ${esc(N.brand)}</h3><span class="muted small">${all.length}</span></div>${filt}${items||'<p class="muted small">Sin contenido aún.</p>'}</div><div class="card">${editor}</div></div>`;
 }
+function readCreator(){const g=id=>$('#'+id);if(g('c-case'))ui.cCase=g('c-case').value;if(g('c-prod'))ui.cProd=g('c-prod').value;if(g('c-plat'))ui.cPlat=g('c-plat').value;if(g('c-secs'))ui.cSecs=+g('c-secs').value;if(g('c-detail'))ui.cDetail=g('c-detail').value;}
 function readEditor(){
   if(!$('#script-editor'))return null;
   return {title:$('#sc-title').value.trim()||'Sin título',platform:$('#sc-plat').value,hook:$('#sc-hook').value,body:$('#sc-body').value,cta:$('#sc-cta').value,caption:$('#sc-caption').value};
@@ -1081,20 +1559,30 @@ function persistEditor(){
 }
 function updateDuration(){
   const v=readEditor(),el=$('#dur');if(!v||!el)return;
-  const txt=(v.hook.replace(/Texto en pantalla:.*$/m,'')+' '+v.body.replace(/Escena \d+ \([^)]*\):/g,'')+' '+v.cta).trim();
-  const w=txt.split(/\s+/).filter(Boolean).length,secs=Math.round(w/2.5);
-  el.innerHTML=`${ic('clock',14)} ≈ ${secs<60?secs+' s':Math.floor(secs/60)+' min '+(secs%60)+' s'} hablando · ${w} palabras`;
+  const s=D.scripts.find(x=>x.id===ui.scriptId),k=(s&&s.kind)||'reel';
+  if(k==='reel'){
+    const txt=(v.hook.replace(/Texto en pantalla:.*$/m,'')+' '+v.body.replace(/Escena \d+ \([^)]*\):?/g,'').replace(/^En cámara:.*$/gm,'').replace(/^Di:\s*/gm,'')+' '+v.cta).replace(/[“”]/g,'').trim();
+    const w=txt.split(/\s+/).filter(Boolean).length,secs=Math.round(w/2.5);
+    el.innerHTML=`${ic('clock',14)} ≈ ${secs<60?secs+' s':Math.floor(secs/60)+' min '+(secs%60)+' s'} hablando · ${w} palabras`;return;
+  }
+  if(k==='anuncio'){const n=v.hook.trim().length;el.innerHTML=`${ic('type',14)} Titular: ${n}/40 caracteres${n>40?' · acórtalo':''}`;return;}
+  const n=scriptText(Object.assign({kind:k},v)).length;el.innerHTML=`${ic('type',14)} ${n.toLocaleString('es-CO')} caracteres`;
 }
 let autosaveT=null;
-const scriptText=s=>`${s.title}\n\nGANCHO:\n${s.hook}\n\nDESARROLLO:\n${s.body}\n\nCIERRE:\n${s.cta}${s.caption?`\n\nTEXTO PARA PUBLICAR:\n${s.caption}`:''}`;
+function scriptText(s){
+  const k=s.kind||'reel',f=[s.hook,s.body,s.cta,s.caption].map(x=>String(x||'').trim());
+  if(k==='copy')return f.filter(Boolean).join('\n\n');
+  if(k==='whatsapp')return f.slice(0,3).filter(Boolean).join('\n\n');
+  const L=KINDS[k].labels;
+  return `${s.title||''}\n\n`+f.map((v,i)=>v?`${L[i].toUpperCase()}:\n${v}`:'').filter(Boolean).join('\n\n');
+}
 function addScript(data){
   if(ui.tab==='guiones')persistEditor();
-  const s=Object.assign({id:uid(),title:'Nuevo guion',platform:'Instagram',hook:'',body:'',cta:'',caption:'',updated:Date.now()},data||{});
+  const s=Object.assign({id:uid(),kind:'reel',title:'Nuevo guion',platform:'Instagram',hook:'',body:'',cta:'',caption:'',updated:Date.now()},data||{});
   D.scripts.push(s);ui.scriptId=s.id;save();
   if(ui.tab!=='guiones')go('guiones');else render();
   return s;
 }
-
 /* =========================================================
    VISTA: Automatización
    ========================================================= */
@@ -1141,23 +1629,23 @@ function lineChart(data){
   const W=window.innerWidth<600?400:640,H=window.innerWidth<600?230:250,pl=46,pr=22,pt=46,pb=30,iw=W-pl-pr,ih=H-pt-pb;
   const {max,k:K}=scale(Math.max(...data.map(d=>d.value))*1.05);
   const x=i=>pl+(data.length===1?iw/2:i*iw/(data.length-1)),y=v=>pt+ih-(v/max)*ih;
-  let g='';for(let i=0;i<=K;i++){const v=max*i/K,yy=y(v).toFixed(1);g+=`<line x1="${pl}" x2="${W-pr}" y1="${yy}" y2="${yy}" stroke="#eef0f4"/><text x="${pl-10}" y="${+yy+4}" text-anchor="end" font-size="11" fill="#9aa1ad">${fmtAxis(v)}</text>`;}
+  let g='';for(let i=0;i<=K;i++){const v=max*i/K,yy=y(v).toFixed(1);g+=`<line x1="${pl}" x2="${W-pr}" y1="${yy}" y2="${yy}" stroke="${TH.grid}"/><text x="${pl-10}" y="${+yy+4}" text-anchor="end" font-size="11" fill="${TH.axis}">${fmtAxis(v)}</text>`;}
   const pts=data.map((d,i)=>[x(i),y(d.value)]),line='M'+pts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' L');
   const area=`${line} L${pts[pts.length-1][0].toFixed(1)},${pt+ih} L${pts[0][0].toFixed(1)},${pt+ih} Z`;
-  const xl=data.map((d,i)=>`<text x="${x(i).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="11" fill="#9aa1ad">${esc(d.label)}</text>`).join('');
-  const dots=pts.map((p,i)=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${i===pts.length-1?5:3}" fill="${i===pts.length-1?'#800020':'#fff'}" stroke="#9b1b3c" stroke-width="2"><title>${esc(data[i].label)}: ${fmtNum(data[i].value)}</title></circle>`).join('');
+  const xl=data.map((d,i)=>`<text x="${x(i).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="11" fill="${TH.axis}">${esc(d.label)}</text>`).join('');
+  const dots=pts.map((p,i)=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${i===pts.length-1?5:3}" fill="${i===pts.length-1?TH.brand:TH.card}" stroke="${TH.brand}" stroke-width="2"><title>${esc(data[i].label)}: ${fmtNum(data[i].value)}</title></circle>`).join('');
   const [lx,ly]=pts[pts.length-1],bx=Math.min(Math.max(lx-44,pl),W-88);
-  return `<svg viewBox="0 0 ${W} ${H}" class="chart-svg" role="img" aria-label="Crecimiento de seguidores"><defs><linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b4123e" stop-opacity=".28"/><stop offset="1" stop-color="#b4123e" stop-opacity="0"/></linearGradient></defs>${g}<path d="${area}" fill="url(#lg1)"/><path d="${line}" fill="none" stroke="#9b1b3c" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>${dots}${xl}<rect x="${bx}" y="${ly-42}" width="88" height="32" rx="7" fill="#800020"/><text x="${bx+44}" y="${ly-27}" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff">${fmtNum(data[data.length-1].value)}</text><text x="${bx+44}" y="${ly-15}" text-anchor="middle" font-size="9.5" fill="#fbd5df">seguidores</text></svg>`;
+  return `<svg viewBox="0 0 ${W} ${H}" class="chart-svg" role="img" aria-label="Crecimiento de seguidores"><defs><linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${TH.brand}" stop-opacity=".28"/><stop offset="1" stop-color="${TH.brand}" stop-opacity="0"/></linearGradient></defs>${g}<path d="${area}" fill="url(#lg1)"/><path d="${line}" fill="none" stroke="${TH.brand}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>${dots}${xl}<rect x="${bx}" y="${ly-42}" width="88" height="32" rx="7" fill="${TH.brand}"/><text x="${bx+44}" y="${ly-27}" text-anchor="middle" font-size="12.5" font-weight="800" fill="${TH.onBrand}">${fmtNum(data[data.length-1].value)}</text><text x="${bx+44}" y="${ly-15}" text-anchor="middle" font-size="9.5" fill="${TH.onBrandSoft}">seguidores</text></svg>`;
 }
 function multiLine(labels,series,unit){
   const W=window.innerWidth<600?400:640,H=window.innerWidth<600?240:260,pl=50,pr=20,pt=20,pb=30,iw=W-pl-pr,ih=H-pt-pb;
   const vals=series.flatMap(s=>s.values).filter(v=>v!=null);if(!vals.length)return empty('chart','No hay datos suficientes.');
   let lo=Math.min(0,...vals),hi=Math.max(...vals,1);const {step}=scale((hi-lo)*1.1);lo=Math.floor(lo/step)*step;let top=lo;while(top<hi)top+=step;if(top===hi)top+=step;
   const x=i=>pl+(labels.length===1?iw/2:i*iw/(labels.length-1)),y=v=>pt+ih-((v-lo)/(top-lo))*ih;
-  let g='';for(let v=lo;v<=top+1e-9;v+=step){const yy=y(v).toFixed(1);g+=`<line x1="${pl}" x2="${W-pr}" y1="${yy}" y2="${yy}" stroke="${Math.abs(v)<1e-9?'#cfd3db':'#eef0f4'}"/><text x="${pl-10}" y="${+yy+4}" text-anchor="end" font-size="11" fill="#9aa1ad">${fmtAxis(v)}${unit}</text>`;}
-  const xl=labels.map((l,i)=>`<text x="${x(i).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="11" fill="#9aa1ad">${esc(l)}</text>`).join('');
+  let g='';for(let v=lo;v<=top+1e-9;v+=step){const yy=y(v).toFixed(1);g+=`<line x1="${pl}" x2="${W-pr}" y1="${yy}" y2="${yy}" stroke="${Math.abs(v)<1e-9?TH.zero:TH.grid}"/><text x="${pl-10}" y="${+yy+4}" text-anchor="end" font-size="11" fill="${TH.axis}">${fmtAxis(v)}${unit}</text>`;}
+  const xl=labels.map((l,i)=>`<text x="${x(i).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="11" fill="${TH.axis}">${esc(l)}</text>`).join('');
   const lines=series.map(s=>{let d='',pen=false;s.values.forEach((v,i)=>{if(v==null){pen=false;return;}d+=(pen?' L':' M')+x(i).toFixed(1)+','+y(v).toFixed(1);pen=true;});
-    const dots=s.values.map((v,i)=>v==null?'':`<circle cx="${x(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="3.5" fill="#fff" stroke="${s.color}" stroke-width="2"><title>${esc(s.name)} · ${esc(labels[i])}: ${v.toFixed(1)}${unit}</title></circle>`).join('');
+    const dots=s.values.map((v,i)=>v==null?'':`<circle cx="${x(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="3.5" fill="${TH.card}" stroke="${s.color}" stroke-width="2"><title>${esc(s.name)} · ${esc(labels[i])}: ${v.toFixed(1)}${unit}</title></circle>`).join('');
     return `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>${dots}`;}).join('');
   return `<svg viewBox="0 0 ${W} ${H}" class="chart-svg" role="img" aria-label="Comparativo">${g}${lines}${xl}</svg><div class="legend-row">${series.map(s=>`<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join('')}</div>`;
 }
@@ -1165,18 +1653,18 @@ function donut(parts){
   const total=sum(parts,p=>p.value);if(!total)return empty('users','Registra los seguidores por red para ver la distribución.');
   const r=54,C=2*Math.PI*r;let off=0;
   const segs=parts.filter(p=>p.value>0).map(p=>{const len=p.value/total*C;const s=`<circle cx="70" cy="70" r="${r}" fill="none" stroke="${p.color}" stroke-width="22" stroke-dasharray="${Math.max(len-1.5,0.1).toFixed(2)} ${(C-len+1.5).toFixed(2)}" stroke-dashoffset="${(-off).toFixed(2)}" transform="rotate(-90 70 70)"><title>${p.label}: ${fmtNum(p.value)}</title></circle>`;off+=len;return s;}).join('');
-  return `<div class="donut-wrap"><svg viewBox="0 0 140 140" width="160" height="160" role="img" aria-label="Audiencia por plataforma">${segs}<text x="70" y="69" text-anchor="middle" font-size="16" font-weight="800" fill="#1f2433">${fmtNum(total)}</text><text x="70" y="86" text-anchor="middle" font-size="10" fill="#9aa1ad">seguidores</text></svg>
+  return `<div class="donut-wrap"><svg viewBox="0 0 140 140" width="160" height="160" role="img" aria-label="Audiencia por plataforma">${segs}<text x="70" y="69" text-anchor="middle" font-size="16" font-weight="800" fill="${TH.text}">${fmtNum(total)}</text><text x="70" y="86" text-anchor="middle" font-size="10" fill="${TH.axis}">seguidores</text></svg>
     <ul class="legend">${parts.map(p=>`<li><i style="background:${p.color}"></i>${p.label}<b>${Math.round(p.value/total*100)}%</b></li>`).join('')}</ul></div>`;
 }
 function barChart(data){
   const W=440,H=240,pl=50,pr=14,pt=48,pb=30,iw=W-pl-pr,ih=H-pt-pb,n=data.length;
   const {max,k:K}=scale(Math.max(...data.map(d=>d.value))*1.05);
   const y=v=>pt+ih-(v/max)*ih,slot=iw/n,bw=Math.min(34,slot*.55);
-  let g='';for(let i=0;i<=K;i++){const v=max*i/K,yy=y(v).toFixed(1);g+=`<line x1="${pl}" x2="${W-pr}" y1="${yy}" y2="${yy}" stroke="#eef0f4"/><text x="${pl-10}" y="${+yy+4}" text-anchor="end" font-size="11" fill="#9aa1ad">$${fmtAxis(v)}</text>`;}
+  let g='';for(let i=0;i<=K;i++){const v=max*i/K,yy=y(v).toFixed(1);g+=`<line x1="${pl}" x2="${W-pr}" y1="${yy}" y2="${yy}" stroke="${TH.grid}"/><text x="${pl-10}" y="${+yy+4}" text-anchor="end" font-size="11" fill="${TH.axis}">$${fmtAxis(v)}</text>`;}
   const bars=data.map((d,i)=>{const cx=pl+slot*i+slot/2,top=y(d.value),last=i===n-1;
-    return `<rect x="${(cx-bw/2).toFixed(1)}" y="${top.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(pt+ih-top,0).toFixed(1)}" rx="5" fill="${last?'#800020':'#f4b6c4'}"><title>${esc(d.label)}: ${money(d.value)}</title></rect><text x="${cx.toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="11" fill="#9aa1ad">${esc(d.label)}</text>`;}).join('');
+    return `<rect x="${(cx-bw/2).toFixed(1)}" y="${top.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(pt+ih-top,0).toFixed(1)}" rx="5" fill="${last?TH.brand:TH.brandLight}"><title>${esc(d.label)}: ${money(d.value)}</title></rect><text x="${cx.toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="11" fill="${TH.axis}">${esc(d.label)}</text>`;}).join('');
   const l=data[n-1],lx=pl+slot*(n-1)+slot/2,ly=y(l.value),bx=Math.min(Math.max(lx-36,pl),W-72);
-  return `<svg viewBox="0 0 ${W} ${H}" class="chart-svg" role="img" aria-label="Ingresos por mes">${g}${bars}<rect x="${bx}" y="${ly-36}" width="72" height="26" rx="7" fill="#800020"/><text x="${bx+36}" y="${ly-19}" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff">${money(l.value)}</text></svg>`;
+  return `<svg viewBox="0 0 ${W} ${H}" class="chart-svg" role="img" aria-label="Ingresos por mes">${g}${bars}<rect x="${bx}" y="${ly-36}" width="72" height="26" rx="7" fill="${TH.brand}"/><text x="${bx+36}" y="${ly-19}" text-anchor="middle" font-size="12.5" font-weight="800" fill="${TH.onBrand}">${money(l.value)}</text></svg>`;
 }
 function hbars(items,fmt){
   if(!items.length)return empty('chart','Sin datos para este mes.');
@@ -1289,35 +1777,54 @@ function download(name,content,type){
 /* =========================================================
    VISTA: Configuración
    ========================================================= */
+function syncCard(){
+  const head=`<div class="card-h"><h3>${ic('link',17)} Misma información en Chrome y Edge</h3>${FS.state==='ok'?'<span class="badge b-TikTok">Conectado</span>':''}</div>`;
+  if(!FS_OK)return `<div class="card">${head}<p class="muted" style="margin:0">${location.protocol==='file:'?'La app está abierta como un archivo de tu computador, y así cada navegador guarda sus propios datos. Publícala (Netlify o GitHub Pages) y ábrela desde ese enlace en Chrome o Edge para usar esta función.':'Este navegador no permite conectar un archivo de datos. Abre la app en Chrome o Edge en tu computador para usar esta función. En el celular usa <b>Descargar copia</b> e <b>Importar copia</b>.'}</p></div>`;
+  let body;
+  if(FS.state==='ok')body=`<p style="margin-top:0">Tus datos se guardan en el archivo <b>${esc(FS.name)}</b>${FS.lastSync?` · última sincronización ${ago(FS.lastSync)}`:''}. En el otro navegador abre la app, entra aquí y toca <b>Usar un archivo existente</b> para elegir este mismo archivo.</p><div class="head-actions"><button class="btn" data-act="fsDisconnect">Desconectar</button></div>`;
+  else if(FS.state==='perm')body=`<p style="margin-top:0">El navegador pide permiso otra vez para usar <b>${esc(FS.name)}</b>. Es normal después de cerrar el navegador.</p><div class="head-actions"><button class="btn primary" data-act="fsReconnect">Reconectar archivo</button><button class="btn" data-act="fsDisconnect">Desconectar</button></div>`;
+  else body=`<p class="muted" style="margin-top:0">Chrome y Edge guardan sus datos por separado. Conéctalos al mismo archivo de tu computador y verás la misma información en los dos.</p>
+    <ol class="steps"><li>En el primer navegador toca <b>Crear archivo de datos</b> y guárdalo, por ejemplo, en Documentos.</li><li>En el otro navegador abre la app, entra a Configuración, toca <b>Usar un archivo existente</b> y elige ese mismo archivo.</li><li>Listo: lo que hagas en uno aparece en el otro en pocos segundos.</li></ol>
+    <div class="head-actions"><button class="btn primary" data-act="fsNew">${ic('plus',16,2)} Crear archivo de datos</button><button class="btn" data-act="fsOpen">${ic('upload',16)} Usar un archivo existente</button></div>
+    <p class="small muted" style="margin-bottom:0">Tip: si guardas el archivo en una carpeta de OneDrive o Google Drive, también lo puedes usar desde otro computador.</p>`;
+  return `<div class="card">${head}${body}</div>`;
+}
 function vConfig(){
-  return pageHead('Configuración','Tu marca como asesora, instalación y copias de seguridad.','',false)+
-  `<div class="grid g2">
-    <div class="card"><div class="card-h"><h3>Tu marca</h3></div>
+  const t=themeCfg(),cur=String(t.color).toLowerCase(),opt=(k,v,l)=>`<button class="chip ${t[k]===v?'active':''}" data-act="setTheme" data-k="${k}" data-v="${v}">${l}</button>`;
+  const brand=`<div class="card"><div class="card-h"><h3>Tu marca</h3></div>
       <div class="logo-box"><div class="logo-prev ${S.user.logo?'has':''}">${S.user.logo?`<img src="${S.user.logo}" alt="Tu logo">`:ic('image',30,1.5)}</div>
         <div><div class="head-actions"><button class="btn" data-act="pickLogo">${ic('upload',16)} ${S.user.logo?'Cambiar logo':'Subir logo'}</button>${S.user.logo?`<button class="btn ghost danger" data-act="removeLogo">${ic('trash',16)} Quitar</button>`:''}</div>
         <p class="small muted" style="margin:8px 0 0">Aparece en el menú y en los informes PDF que entregas a tus clientes.</p></div></div>
       <div class="field"><label for="cf-brand">Nombre de la app / tu marca</label><input class="inp" id="cf-brand" value="${esc(S.user.brand)}" maxlength="40"></div>
       ${S.user.logo?`<label class="check"><input type="checkbox" id="cf-showname" ${S.user.showName!==false?'checked':''}> Mostrar el nombre al lado del logo</label>`:''}
       <div class="field"><label for="cf-name">Tu nombre (saludo e informes)</label><input class="inp" id="cf-name" value="${esc(S.user.name)}" maxlength="40"></div>
-      <button class="btn primary" data-act="saveProfile">Guardar cambios</button></div>
-    <div class="card"><div class="card-h"><h3>Instalar la app</h3>${isStandalone()?`<span class="badge b-TikTok">Instalada</span>`:''}</div>
-      <p class="muted" style="margin-top:0">Instálala para abrirla desde tu escritorio o pantalla de inicio, a pantalla completa y sin internet.</p>
-      <button class="btn primary" data-act="installApp">${ic('download',16,2)} Instalar ahora</button>
-      <div class="hint mt" style="margin-bottom:0"><b>PC (Chrome o Edge):</b> ícono de instalar en la barra de direcciones.<br><b>Android (Chrome):</b> menú ⋮ → Instalar app.<br><b>iPhone (Safari):</b> botón Compartir → Agregar a inicio.</div></div>
-  </div>
-  <div class="card mt"><div class="card-h"><h3>Tus datos</h3><span class="small muted">${S.workspaces.length} ${S.workspaces.length===1?'empresa':'empresas'}</span></div>
-    <p class="muted" style="margin-top:0">Todo se guarda en este dispositivo. Para pasar tu información (todas las empresas) del PC al celular, descarga una copia y luego impórtala en el otro dispositivo.</p>
+      <button class="btn primary" data-act="saveProfile">Guardar cambios</button></div>`;
+  const design=`<div class="card"><div class="card-h"><h3>${ic('palette',17)} Diseño de la app</h3><button class="btn sm ghost" data-act="resetTheme">${ic('refresh',14)} Restablecer</button></div>
+    <div class="field"><label>Modo</label><div class="chips wrap">${opt('mode','light','Claro')}${opt('mode','dark','Oscuro')}${opt('mode','auto','Automático')}</div></div>
+    <div class="field"><label>Color principal</label><div class="swatches">${THEME_COLORS.map(c=>`<button class="sw ${c===cur?'on':''}" style="background:${c}" data-act="setTheme" data-k="color" data-v="${c}" aria-label="Color ${c}"></button>`).join('')}<label class="sw sw-custom ${THEME_COLORS.includes(cur)?'':'on'}" title="Elegir otro color"><input type="color" id="th-custom" value="${esc(t.color)}" aria-label="Elegir otro color"></label></div></div>
+    <label class="check"><input type="checkbox" id="th-ws" ${t.wsColor?'checked':''}> Usar el color de la empresa activa</label>
+    <div class="field"><label>Tipografía de los títulos</label><div class="font-opts">${Object.entries(FONTS).map(([k,f])=>`<button class="font-opt ${t.font===k?'active':''}" data-act="setTheme" data-k="font" data-v="${k}"><span style="font-family:${f.h};font-weight:${f.w}">Aa</span><small>${f.label}</small></button>`).join('')}</div></div>
+    <div class="field"><label>Esquinas</label><div class="chips wrap">${opt('radius','redondeado','Redondeadas')}${opt('radius','suave','Suaves')}${opt('radius','recto','Rectas')}</div></div>
+    <div class="field" style="margin:0"><label>Menú lateral</label><div class="chips wrap">${opt('sidebar','claro','Claro')}${opt('sidebar','marca','Con el color principal')}</div></div></div>`;
+  const install=`<div class="card"><div class="card-h"><h3>${ic('download',17)} Instalar en este equipo</h3>${isStandalone()?`<span class="badge b-TikTok">Instalada</span>`:''}</div>
+      <p class="muted" style="margin-top:0">Instálala para abrirla desde el escritorio o la pantalla de inicio, en su propia ventana y sin internet.</p>
+      <button class="btn primary" data-act="installApp">${ic('download',16,2)} ${isStandalone()?'Ver cómo instalar':'Instalar ahora'}</button>
+      <div class="hint mt" style="margin-bottom:0"><b>Chrome (PC):</b> ícono de instalar en la barra de direcciones, o menú ⋮ → Transmitir, guardar y compartir → Instalar página como app.<br><b>Edge (PC):</b> menú ⋯ → Aplicaciones → Instalar este sitio como una aplicación.<br><b>Android:</b> Chrome → menú ⋮ → Instalar app.<br><b>iPhone:</b> Safari → Compartir → Agregar a inicio.</div></div>`;
+  const data=`<div class="card mt"><div class="card-h"><h3>Copias de seguridad</h3><span class="small muted">${S.workspaces.length} ${S.workspaces.length===1?'empresa':'empresas'}</span></div>
+    <p class="muted" style="margin-top:0">Descarga una copia de todo (empresas, fichas, contenido, guiones, estadísticas y diseño) para guardarla o pasarla al celular.</p>
     <div class="head-actions"><button class="btn" data-act="exportData">${ic('download',16)} Descargar copia</button><button class="btn" data-act="importData">${ic('upload',16)} Importar copia</button>
     <button class="btn" data-act="resetDemo">${ic('refresh',16)} Cargar empresas de ejemplo</button><button class="btn danger" data-act="wipeAll">${ic('trash',16)} Empezar desde cero</button></div></div>`;
+  return pageHead('Configuración','Tu marca, el diseño de la app, la instalación y tus datos.','',false)+
+    `<div class="grid g2">${brand}${design}</div><div class="grid g2 mt">${syncCard()}${install}</div>${data}`;
 }
-
 /* =========================================================
    Render y navegación
    ========================================================= */
-const VIEWS={inicio:vInicio,empresas:vEmpresas,planificador:vPlan,ideas:vIdeas,guiones:vGuiones,automatizacion:vAuto,estadisticas:vStats,comparativo:vCompare,configuracion:vConfig};
-function render(){renderSidebar();$('#main').innerHTML=(VIEWS[ui.tab]||vInicio)();if(ui.tab==='guiones')updateDuration();}
+const VIEWS={inicio:vInicio,empresas:vEmpresas,ficha:vFicha,planificador:vPlan,ideas:vIdeas,guiones:vGuiones,automatizacion:vAuto,estadisticas:vStats,comparativo:vCompare,configuracion:vConfig};
+function render(){ui.needRender=false;renderSidebar();$('#main').innerHTML=(FS.state==='perm'?permBanner():'')+(VIEWS[ui.tab]||vInicio)();if(ui.tab==='guiones')updateDuration();}
 function go(tab){
   if(ui.tab==='guiones')persistEditor();
+  flushFicha();
   closeMenu();closeModal();
   if(location.hash!=='#'+tab){location.hash=tab;}else{ui.tab=tab;render();}
   window.scrollTo(0,0);
@@ -1335,7 +1842,7 @@ function copyText(text){
 }
 const num=id=>{const v=$(id).value;return v===''?0:Math.max(0,+v||0);};
 function keepProfileDrafts(){const b=$('#cf-brand'),n=$('#cf-name'),s=$('#cf-showname');if(b)S.user.brand=b.value.trim()||S.user.brand;if(n)S.user.name=n.value.trim()||S.user.name;if(s)S.user.showName=s.checked;}
-function readAutoForm(){const t=$('#g-topic');if(!t)return;ui.gTopic=t.value;ui.gGoal=$('#g-goal').value;ui.gSecs=+$('#g-secs').value;ui.gPlat=$('#g-plat').value;}
+
 
 /* =========================================================
    Acciones
@@ -1349,7 +1856,34 @@ const A={
   openWsPicker:()=>{closeMenu();wsPicker();},
   switchWs:el=>switchWs(el.dataset.id),
   newWs:()=>{closeMenu();wsModal();},
-  editWs:el=>{const w=S.workspaces.find(x=>x.id===(el.dataset.id||D.id));if(w)wsModal(w);},
+  editWs:el=>A.openFicha(el),
+  /* ficha */
+  openFicha:el=>{const id=(el&&el.dataset&&el.dataset.id)||D.id;if(id!==D.id){if(ui.tab==='guiones')persistEditor();flushFicha();S.activeId=id;bindD();resetWsUi();save();applyTheme();}closeModal();closeMenu();go('ficha');},
+  saveFicha:()=>{flushFicha();save();toast('Ficha guardada ✓');},
+  fichaLogo:()=>{ui.logoTarget='ficha';$('#ws-logo-file').click();},
+  fichaLogoDel:()=>{flushFicha();delete D.logo;save();render();toast('Logo quitado');},
+  fichaColor:el=>{flushFicha();D.color=el.dataset.c;save();applyTheme();render();},
+  /* creador */
+  cKind:el=>{readCreator();ui.cKind=el.dataset.k;render();},
+  makePiece:()=>{readCreator();const cs=CASES.find(c=>c.id===ui.cCase)||CASES[0];
+    if(cs.need&&!ui.cDetail.trim()){toast('Escribe el detalle. '+cs.ph);const d=$('#c-detail');if(d)d.focus();return;}
+    const s=createPiece({kind:ui.cKind,caseId:cs.id,prod:ui.cProd,plat:ui.cPlat,secs:ui.cSecs,detail:ui.cDetail});
+    ui.sFilter='todos';addScript(s);toast(`${KINDS[s.kind].short} creado ✓`);
+    setTimeout(()=>{const e=$('#script-editor');if(e)e.scrollIntoView({behavior:'smooth',block:'start'});},60);},
+  sFilter:el=>{persistEditor();ui.sFilter=el.dataset.f;ui.scriptId=null;render();},
+  copyCaption:()=>{const v=readEditor();if(v)copyText(v.caption);},
+  openWa:()=>{persistEditor();const s=D.scripts.find(x=>x.id===ui.scriptId);if(s)window.open('https://wa.me/?text='+encodeURIComponent(scriptText(s)),'_blank','noopener');},
+  /* diseño */
+  setTheme:el=>{S.user.theme=Object.assign(themeCfg(),{[el.dataset.k]:el.dataset.v});applyTheme();save();render();},
+  resetTheme:()=>{S.user.theme=Object.assign({},THEME_DEF);applyTheme();save();render();toast('Diseño restablecido');},
+  /* archivo compartido */
+  fsNew:()=>fsConnectNew(),
+  fsOpen:()=>fsConnectExisting(),
+  fsReconnect:()=>fsReconnect(),
+  fsDisconnect:()=>{if(!confirm('¿Dejar de usar el archivo? Tus datos quedan en este navegador y en el archivo, pero ya no se sincronizan.'))return;fsDisconnect();},
+  fileUseFile:()=>fsFinishConnect(false),
+  fileMerge:()=>fsFinishConnect(true),
+  dismissSyncTip:()=>{S.user.syncTipOff=true;save();render();},
   pickColor:el=>{ui.wsDraft.color=el.dataset.c;document.querySelectorAll('.sw').forEach(b=>b.classList.toggle('on',b===el));},
   pickWsLogo:()=>$('#ws-logo-file').click(),
   removeWsLogo:()=>{ui.wsDraft.logo=null;const p=$('#w-logo-prev');if(p){p.classList.remove('has');p.innerHTML=ic('image',22,1.5);}const d=$('#w-logo-del');if(d)d.style.display='none';},
@@ -1358,18 +1892,18 @@ const A={
     const niche={sector:$('#w-sector').value.trim(),audience:$('#w-aud').value.trim(),products:$('#w-prod').value.trim(),diff:$('#w-diff').value.trim(),tone:$('#w-tone').value,goal:$('#w-goal').value,keywords:$('#w-keys').value.trim()};
     const dr=ui.wsDraft;
     if(dr.id){const w=S.workspaces.find(x=>x.id===dr.id);Object.assign(w,{name,color:dr.color,niche});if(dr.logo)w.logo=dr.logo;else delete w.logo;
-      if(!persist(S)){delete w.logo;save();toast('El logo es muy pesado; se guardó sin logo');}else toast('Perfil guardado ✓');
+      if(!persist(S)){delete w.logo;toast('El logo es muy pesado; se guardó sin logo');}else toast('Perfil guardado ✓');save();
       closeModal();render();}
     else{const w=blankWs(name,dr.color);w.niche=niche;if(dr.logo)w.logo=dr.logo;S.workspaces.push(w);
       if(ui.tab==='guiones')persistEditor();S.activeId=w.id;bindD();resetWsUi();
-      if(!persist(S)){delete w.logo;save();}
-      closeModal();go(ui.tab==='empresas'||ui.tab==='comparativo'||ui.tab==='configuracion'?'inicio':ui.tab);toast(`Empresa creada: ahora trabajas en ${name}`);}
+      if(!persist(S)){delete w.logo;}save();
+      closeModal();applyTheme();go('ficha');toast('Empresa creada: completa su ficha para mejores resultados');}
   },
   deleteWs:el=>{
     if(S.workspaces.length===1){toast('Debe quedar al menos una empresa');return;}
     const w=S.workspaces.find(x=>x.id===el.dataset.id);if(!w)return;
     if(!confirm(`¿Eliminar "${w.name}" con todo su contenido, ideas, guiones, flujos y estadísticas? Esto no se puede deshacer.`))return;
-    S.workspaces=S.workspaces.filter(x=>x.id!==w.id);if(S.activeId===w.id){S.activeId=S.workspaces[0].id;resetWsUi();}bindD();save();closeModal();render();toast('Empresa eliminada');
+    S.workspaces=S.workspaces.filter(x=>x.id!==w.id);S.deleted=(S.deleted||[]).concat(w.id);if(S.activeId===w.id){S.activeId=S.workspaces[0].id;resetWsUi();}bindD();save();closeModal();render();toast('Empresa eliminada');
   },
   /* contenido */
   newContent:el=>contentModal({date:el.dataset.date}),
@@ -1410,17 +1944,13 @@ const A={
   clearSaved:()=>{if(!confirm(`¿Borrar todas las ideas guardadas de ${D.name}?`))return;D.ideas=[];save();render();toast('Ideas borradas');},
   /* guiones */
   newScript:()=>{const s=addScript();setTimeout(()=>{const t=$('#sc-title');if(t){t.focus();t.select();}},80);},
-  autoScript:()=>{readAutoForm();const N=nctx();
-    if(!ui.gTopic.trim()&&!N.hasProfile){toast('Escribe el tema del video');$('#g-topic').focus();return;}
-    const s=genScript({topic:ui.gTopic,goal:ui.gGoal,secs:ui.gSecs,plat:ui.gPlat},N);addScript(s);toast('Guion creado ✓');
-    setTimeout(()=>{const e=$('#script-editor');if(e)e.scrollIntoView({behavior:'smooth',block:'start'});},60);},
   regenScript:()=>{persistEditor();const s=D.scripts.find(x=>x.id===ui.scriptId);if(!s||!s.gen)return;
-    const n=genScript(s.gen,nctx());Object.assign(s,{hook:n.hook,body:n.body,cta:n.cta,caption:n.caption,updated:Date.now()});save();render();toast('Nueva versión lista');},
+    const n=s.gen.v===2?createPiece(s.gen):genScript(s.gen,nctx());Object.assign(s,{hook:n.hook,body:n.body,cta:n.cta,caption:n.caption,updated:Date.now()});save();render();toast('Nueva versión lista');},
   selectScript:el=>{persistEditor();ui.scriptId=el.dataset.id;render();},
-  saveScript:()=>{persistEditor();render();toast('Guion guardado ✓');},
-  copyScript:()=>{const v=readEditor();if(v)copyText(scriptText(v));},
-  deleteScript:()=>{if(!confirm('¿Eliminar este guion?'))return;D.scripts=D.scripts.filter(x=>x.id!==ui.scriptId);ui.scriptId=null;save();render();toast('Guion eliminado');},
-  scheduleScript:()=>{persistEditor();const s=D.scripts.find(x=>x.id===ui.scriptId);if(s)contentModal({title:s.title,type:typeFor(s.platform,'video'),status:'programado',notes:scriptText(s)});},
+  saveScript:()=>{persistEditor();render();toast('Guardado ✓');},
+  copyScript:()=>{persistEditor();const s=D.scripts.find(x=>x.id===ui.scriptId);if(s)copyText(scriptText(s));},
+  deleteScript:()=>{if(!confirm('¿Eliminar este contenido?'))return;D.scripts=D.scripts.filter(x=>x.id!==ui.scriptId);ui.scriptId=null;save();render();toast('Guion eliminado');},
+  scheduleScript:()=>{persistEditor();const s=D.scripts.find(x=>x.id===ui.scriptId);if(s)contentModal({title:s.title,type:KINDS[s.kind||'reel'].type(s.platform),status:'programado',notes:scriptText(s)});},
   /* automatización */
   flowChan:el=>{ui.flowChan=el.dataset.c;render();},
   newFlow:()=>flowModal(),
@@ -1455,16 +1985,21 @@ const A={
   removeLogo:()=>{if(!confirm('¿Quitar tu logo?'))return;keepProfileDrafts();delete S.user.logo;save();render();toast('Logo quitado');},
   exportData:()=>{download(`nadine-copia-${iso(new Date())}.json`,JSON.stringify(S,null,2),'application/json');toast('Copia descargada ✓');},
   importData:()=>$('#import-file').click(),
-  resetDemo:()=>{if(!confirm('Esto reemplaza todas tus empresas por las empresas de ejemplo. ¿Continuar?'))return;S=seed(S.user);bindD();resetWsUi();save();render();toast('Empresas de ejemplo cargadas');},
+  resetDemo:()=>{if(!confirm('Esto reemplaza todas tus empresas por las empresas de ejemplo. ¿Continuar?'))return;{const old=S.workspaces.map(w=>w.id);S=seed(S.user);S.deleted=old;}bindD();applyTheme();resetWsUi();save();render();toast('Empresas de ejemplo cargadas');},
   wipeAll:()=>{if(!confirm('Se borrarán todas las empresas con su contenido, ideas, guiones, flujos y estadísticas de este dispositivo. ¿Seguro?'))return;
-    const w=blankWs();S={version:2,user:S.user,activeId:w.id,workspaces:[w]};bindD();resetWsUi();save();go('empresas');setTimeout(()=>wsModal(D),150);toast('Listo: crea el perfil de tu primera empresa');},
+    const w=blankWs(),old=S.workspaces.map(x=>x.id);S={version:2,user:S.user,activeId:w.id,workspaces:[w],deleted:old};bindD();resetWsUi();save();go('empresas');setTimeout(()=>wsModal(D),150);toast('Listo: crea el perfil de tu primera empresa');},
   installApp:()=>{
-    if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;});return;}
-    const ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
-    openModal(`<h2>Instalar la app</h2>${ios?`<p>En iPhone o iPad abre esta página en <b>Safari</b>, toca <b>Compartir</b> y elige <b>Agregar a inicio</b>.</p>`:''}
-      <div class="hint"><b>PC con Chrome o Edge:</b> ícono de instalar al final de la barra de direcciones, o menú ⋮ → <i>Transmitir, guardar y compartir</i> → <i>Instalar página como app</i>.</div>
-      <div class="hint"><b>Android con Chrome:</b> menú ⋮ → <i>Instalar app</i>.</div><div class="hint"><b>iPhone:</b> Safari → Compartir → <i>Agregar a inicio</i>.</div>
-      <p class="small muted">La instalación solo aparece cuando la app está publicada en internet (Netlify o GitHub Pages).</p>
+    if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;render();});return;}
+    const ua=navigator.userAgent,ios=/iphone|ipad|ipod/i.test(ua),edge=/Edg\//.test(ua),android=/android/i.test(ua),file=location.protocol==='file:';
+    let steps;
+    if(isStandalone())steps=`<p style="margin-top:0">${ic('check',16,2)} Ya estás usando la app instalada.</p>`;
+    else if(file)steps=`<div class="warn-box">${ic('info',20)}<p><b>Estás abriendo la app como un archivo de tu computador.</b> Así no se puede instalar. Publícala primero (arrastra la carpeta a <b>app.netlify.com/drop</b>) y abre ese enlace en Chrome o Edge.</p></div>`;
+    else if(ios)steps=`<div class="hint">En iPhone o iPad abre esta página en <b>Safari</b>, toca <b>Compartir</b> (cuadro con flecha) y elige <b>Agregar a inicio</b>.</div>`;
+    else if(android)steps=`<div class="hint">En Chrome toca el menú <b>⋮</b> y elige <b>Instalar app</b> (o <b>Agregar a la pantalla principal</b>).</div>`;
+    else if(edge)steps=`<div class="hint"><b>En Edge:</b> toca el menú <b>⋯</b> (arriba a la derecha) → <b>Aplicaciones</b> → <b>Instalar este sitio como una aplicación</b>. También puede aparecer un ícono de instalar en la barra de direcciones.</div>`;
+    else steps=`<div class="hint"><b>En Chrome:</b> toca el ícono de instalar (pantalla con flecha) al final de la barra de direcciones, o el menú <b>⋮</b> → <b>Transmitir, guardar y compartir</b> → <b>Instalar página como app</b>.</div>`;
+    openModal(`<h2>Instalar en este equipo</h2>${steps}
+      <p class="small muted">La app instalada abre en su propia ventana, con ícono en el escritorio y en el menú Inicio, y funciona sin internet. La que instales desde Chrome comparte los datos con Chrome, y la de Edge con Edge: para ver lo mismo en las dos, conecta el archivo de datos en <b>Configuración</b>.</p>
       <div class="modal-foot"><span></span><button class="btn primary" data-act="closeModal">Entendido</button></div>`);
   }
 };
@@ -1482,7 +2017,10 @@ document.addEventListener('click',e=>{const el=e.target.closest('[data-act]');if
 document.addEventListener('input',e=>{
   const id=e.target.id;
   if(id==='topic')ui.topic=e.target.value;
-  if(id==='g-topic')ui.gTopic=e.target.value;
+  if(id==='c-detail')ui.cDetail=e.target.value;
+  if(e.target.dataset&&e.target.dataset.nf!==undefined)fichaInput(e.target);
+  if(e.target.dataset&&e.target.dataset.wsf==='name'){D.name=e.target.value.trim()||'Empresa';renderSidebar();fichaSoon();}
+  if(id==='th-custom'){S.user.theme=Object.assign(themeCfg(),{color:e.target.value});applyTheme();}
   if(e.target.closest&&e.target.closest('#script-editor')){updateDuration();clearTimeout(autosaveT);autosaveT=setTimeout(persistEditor,600);}
 });
 document.addEventListener('change',e=>{
@@ -1490,11 +2028,13 @@ document.addEventListener('change',e=>{
   if(id==='stats-month'){ui.statsMonth=e.target.value;render();}
   if(id==='cmp-month'){ui.cmpMonth=e.target.value;render();}
   if(id==='sc-plat')persistEditor();
-  if(['g-goal','g-secs','g-plat'].includes(id))readAutoForm();
+  if(['c-case','c-prod','c-plat','c-secs'].includes(id)){readCreator();if(id==='c-case'){const cs=CASES.find(c=>c.id===ui.cCase),d=$('#c-detail'),lb=document.querySelector('label[for="c-detail"]');if(cs&&d)d.placeholder=cs.ph;if(cs&&lb)lb.textContent='Detalle'+(cs.need?'':' (opcional)');}}
+  if(id==='th-custom'){save();render();}
+  if(id==='th-ws'){S.user.theme=Object.assign(themeCfg(),{wsColor:e.target.checked});applyTheme();save();render();}
 });
 document.addEventListener('keydown',e=>{
   if(e.key==='Enter'&&e.target.id==='topic'){e.preventDefault();doGenerate();}
-  if(e.key==='Enter'&&e.target.id==='g-topic'){e.preventDefault();A.autoScript();}
+  if(e.key==='Enter'&&e.target.id==='c-detail'){e.preventDefault();A.makePiece();}
   if(e.key==='Escape'){if($('#modal').classList.contains('open'))closeModal();else closeMenu();}
 });
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
@@ -1502,31 +2042,39 @@ $('#import-file').addEventListener('change',e=>{
   const file=e.target.files&&e.target.files[0];if(!file)return;const r=new FileReader();
   r.onload=()=>{try{const o=JSON.parse(r.result);if(!o||typeof o!=='object'||!(Array.isArray(o.workspaces)||Array.isArray(o.content)))throw new Error();
       if(!confirm('¿Reemplazar los datos de este dispositivo por los de la copia?'))return;
-      S=normalize(o);bindD();resetWsUi();save();render();toast('Copia importada ✓');}catch(err){toast('Ese archivo no es una copia válida');}
+      {const old=S.workspaces.map(w=>w.id);S=normalize(o);S.deleted=[...new Set([...(S.deleted||[]),...old.filter(id=>!S.workspaces.some(w=>w.id===id))])];}bindD();resetWsUi();snaps=new Map();userSnap='';save();applyTheme();render();toast('Copia importada ✓');}catch(err){toast('Ese archivo no es una copia válida');}
     e.target.value='';};
   r.readAsText(file);
 });
 $('#logo-file').addEventListener('change',e=>{
   const file=e.target.files&&e.target.files[0];e.target.value='';if(!file)return;
   readLogo(file).then(url=>{keepProfileDrafts();S.user.logo=url;if(S.user.showName===undefined)S.user.showName=true;
-    if(!persist(S)){delete S.user.logo;toast('El logo es muy pesado, prueba con una imagen más liviana');return;}render();toast('Logo actualizado ✓');}).catch(m=>toast(String(m)));
+    if(!persist(S)){delete S.user.logo;toast('El logo es muy pesado, prueba con una imagen más liviana');return;}save();render();toast('Logo actualizado ✓');}).catch(m=>toast(String(m)));
 });
 $('#ws-logo-file').addEventListener('change',e=>{
-  const file=e.target.files&&e.target.files[0];e.target.value='';if(!file||!ui.wsDraft)return;
+  const file=e.target.files&&e.target.files[0];e.target.value='';if(!file)return;
+  if(ui.logoTarget==='ficha'){ui.logoTarget=null;readLogo(file).then(url=>{flushFicha();D.logo=url;if(!persist(S)){delete D.logo;toast('El logo es muy pesado, prueba con una imagen más liviana');return;}save();render();toast('Logo actualizado ✓');}).catch(m=>toast(String(m)));return;}
+  if(!ui.wsDraft)return;
   readLogo(file).then(url=>{ui.wsDraft.logo=url;const p=$('#w-logo-prev');if(p){p.classList.add('has');p.innerHTML=`<img src="${url}" alt="">`;}const d=$('#w-logo-del');if(d)d.style.display='';}).catch(m=>toast(String(m)));
 });
 window.addEventListener('beforeunload',()=>{if(ui.tab==='guiones')persistEditor();});
-document.addEventListener('visibilitychange',()=>{if(document.hidden&&ui.tab==='guiones')persistEditor();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){if(ui.tab==='guiones')persistEditor();flushFicha();flushFileWrite();}else if(FS.state==='ok')fsPull(false);});
+window.addEventListener('focus',()=>{if(FS.state==='ok')fsPull(false);});
+document.addEventListener('focusout',()=>{setTimeout(()=>{if(ui.needRender&&!isTyping()&&!modalOpen())render();},200);});
 
 /* ---------- instalación (PWA) ---------- */
 let deferredPrompt=null;
-window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;});
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;if(ui.tab==='inicio'&&!isTyping()&&!modalOpen())render();});
 window.addEventListener('appinstalled',()=>{deferredPrompt=null;toast('¡App instalada! 🎉');render();});
 if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){window.addEventListener('load',()=>{navigator.serviceWorker.register('./sw.js').catch(()=>{});});}
 
 /* ---------- inicio ---------- */
 document.querySelectorAll('[data-ic]').forEach(el=>{el.innerHTML=ic(el.dataset.ic,22);});
+applyTheme();
 render();
+fsInit();
+setInterval(()=>{if(!document.hidden&&FS.state==='ok')fsPull(false);},4000);
+if(window.matchMedia){const mq=window.matchMedia('(prefers-color-scheme: dark)'),onMq=()=>{if(themeCfg().mode==='auto'){applyTheme();if(!isTyping())render();}};if(mq.addEventListener)mq.addEventListener('change',onMq);else if(mq.addListener)mq.addListener(onMq);}
 })();
 </script>
 </body>
