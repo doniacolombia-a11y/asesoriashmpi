@@ -1,7 +1,7 @@
 /* Service worker de la app Nadine: guarda la app para que funcione sin internet.
-   Cuando hagas cambios en la app, sube el número de versión (nadine-v1 → nadine-v2) para que
+   Cuando hagas cambios en la app, sube el número de versión (nadine-v3 → nadine-v4) para que
    los celulares y PCs que ya la tienen instalada descarguen la nueva versión. */
-const CACHE = 'nadine-v2';
+const CACHE = 'nadine-v3';
 const ASSETS = [
   './',
   './index.html',
@@ -13,8 +13,13 @@ const ASSETS = [
   './icons/favicon-48.png'
 ];
 
+// Guarda cada archivo por separado: si uno falla, los demás igual quedan guardados.
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
+  event.waitUntil(
+    caches.open(CACHE)
+      .then(cache => Promise.all(ASSETS.map(url => cache.add(url).catch(() => null))))
+      .then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener('activate', event => {
@@ -30,12 +35,12 @@ self.addEventListener('fetch', event => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
 
-  // Página principal: primero internet (para recibir actualizaciones), si no hay, la copia guardada.
+  // Página principal: primero internet (para recibir actualizaciones); sin conexión, la copia guardada.
   if (req.mode === 'navigate') {
     event.respondWith(
       fetch(req)
         .then(res => { const copy = res.clone(); caches.open(CACHE).then(c => c.put('./index.html', copy)); return res; })
-        .catch(() => caches.match('./index.html'))
+        .catch(() => caches.match('./index.html').then(r => r || caches.match('./')))
     );
     return;
   }
@@ -44,7 +49,8 @@ self.addEventListener('fetch', event => {
   if (url.origin === self.location.origin) {
     event.respondWith(
       caches.match(req).then(hit => hit || fetch(req).then(res => {
-        const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); return res;
+        if (res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); }
+        return res;
       }))
     );
     return;
